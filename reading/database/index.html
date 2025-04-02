@@ -1,0 +1,340 @@
+<!DOCTYPE html>
+<!--
+This file is part of Computer Learning Resource Collection.
+
+Computer Learning Resource Collection is free software: you can redistribute it and/or modify
+it under the terms of the GNU General Public License as published by
+the Free Software Foundation, either version 3 of the License, or
+(at your option) any later version.
+
+Computer Learning Resource Collection is distributed in the hope that it will be useful,
+but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+GNU General Public License for more details.
+
+You should have received a copy of the GNU General Public License
+along with Computer Learning Resource Collection.  If not, see <https://www.gnu.org/licenses/>.
+
+Copyright (C) 2025 wangbin579
+-->
+
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Database Systems Research Portal</title>
+    <style>
+        /* Global Styles */
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f8f9fa;
+            color: #333;
+            line-height: 1.6;
+            margin: 0;
+            padding: 20px;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        /* Back Link */
+        .back-link {
+            display: inline-flex;
+            align-items: center;
+            margin-bottom: 25px;
+            color: #6c757d;
+            text-decoration: none;
+            font-weight: 600;
+            transition: color 0.3s;
+        }
+        
+        .back-link:hover {
+            color: #3498db;
+        }
+        
+        .back-link::before {
+            content: "<-";
+            margin-right: 8px;
+        }
+        
+        /* Header Section */
+        header {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+        
+        header h1 {
+            font-size: 2.5rem;
+            margin: 0;
+            color: #2c3e50;
+            background: linear-gradient(135deg, #3498db, #9b59b6);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+        
+        .subtitle {
+            font-size: 1.2rem;
+            color: #7f8c8d;
+            margin-top: 10px;
+        }
+        
+        /* Category Grid Layout */
+        .category-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 25px;
+            margin-top: 20px;
+        }
+        
+        /* Category Card Styling */
+        .category-card {
+            border-radius: 12px;
+            overflow: hidden;
+            transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+            background: white;
+        }
+        
+        .category-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 12px 24px rgba(0,0,0,0.15);
+        }
+        
+        /* Category Header - Unique Gradients */
+        .category-header {
+            padding: 20px;
+            color: white;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .category-header::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: linear-gradient(45deg, transparent 25%, rgba(255,255,255,0.1) 50%, transparent 75%);
+            transform: rotate(45deg);
+            animation: shine 3s infinite linear;
+        }
+        
+        @keyframes shine {
+            0% { transform: translateX(-100%) rotate(45deg); }
+            100% { transform: translateX(100%) rotate(45deg); }
+        }
+        
+        /* Individual Category Colors */
+        .high-availability .category-header {
+            background: linear-gradient(135deg, #3498db, #2980b9);
+        }
+        
+        .consensus-algorithms .category-header {
+            background: linear-gradient(135deg, #e74c3c, #c0392b);
+        }
+        
+        .storage-engines .category-header {
+            background: linear-gradient(135deg, #2ecc71, #27ae60);
+        }
+        
+        .distributed-databases .category-header {
+            background: linear-gradient(135deg, #9b59b6, #8e44ad);
+        }
+        
+        .query-optimization .category-header {
+            background: linear-gradient(135deg, #f39c12, #e67e22);
+        }
+        
+        .database-architecture .category-header {
+            background: linear-gradient(135deg, #34495e, #2c3e50);
+        }
+        
+        .database-performance .category-header {
+            background: linear-gradient(135deg, #e84393, #fd79a8);
+        }
+        
+        .database-testing .category-header {
+            background: linear-gradient(135deg, #00cec9, #0984e3);
+        }
+        
+        .olap-analytics .category-header {
+            background: linear-gradient(135deg, #fdcb6e, #e17055);
+        }
+        
+        .ai-databases .category-header {
+            background: linear-gradient(135deg, #a569bd, #8e44ad);
+        }
+        
+        .category-header h2 {
+            margin: 0;
+            font-size: 1.5rem;
+            position: relative;
+            text-shadow: 0 2px 4px rgba(0,0,0,0.2);
+        }
+        
+        /* Category Content Area */
+        .category-body {
+            padding: 20px;
+            flex-grow: 1;
+            background: white;
+            border-bottom-left-radius: 12px;
+            border-bottom-right-radius: 12px;
+        }
+        
+        .category-body p {
+            color: #7f8c8d;
+            margin: 10px 0 0;
+            font-size: 0.95rem;
+        }
+        
+        /* Footer Styling */
+        footer {
+            text-align: center;
+            margin-top: 60px;
+            padding: 20px;
+            color: #7f8c8d;
+            font-size: 0.9rem;
+        }
+        
+        /* Responsive Adjustments */
+        @media (max-width: 768px) {
+            .category-grid {
+                grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+                gap: 20px;
+            }
+            
+            header h1 {
+                font-size: 2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <a href="../index.html" class="back-link">Back to Main Page</a>
+        
+        <header>
+            <h1>Database Systems Research</h1>
+            <p class="subtitle">Explore cutting-edge database technologies by category</p>
+        </header>
+        
+        <section class="category-section">
+            <div class="category-grid">
+                <!-- Query Optimization -->
+                <a href="query_optimization.html" class="category-card query-optimization">
+                    <div class="category-header">
+                        <h2>Query Optimization</h2>
+                    </div>
+                    <div class="category-body">
+                        <p>Query planning, execution and cost-based optimization</p>
+                    </div>
+                </a>
+                
+                <!-- Storage Engines -->
+                <a href="storage_engines.html" class="category-card storage-engines">
+                    <div class="category-header">
+                        <h2>Storage Engines</h2>
+                    </div>
+                    <div class="category-body">
+                        <p>Redo mechanism, lock scheduling, transactions, reducing latch contention, LSM-trees, B-trees, and modern storage architectures</p>
+                    </div>
+                </a>
+
+                <!-- Consensus Algorithms -->
+                <a href="consensus_algorithms.html" class="category-card consensus-algorithms">
+                    <div class="category-header">
+                        <h2>Consensus Algorithms</h2>
+                    </div>
+                    <div class="category-body">
+                        <p>Paxos, Raft and distributed consensus protocols</p>
+                    </div>
+                </a>
+                                
+                <!-- Distributed Databases -->
+                <a href="distributed_databases.html" class="category-card distributed-databases">
+                    <div class="category-header">
+                        <h2>Distributed Databases</h2>
+                    </div>
+                    <div class="category-body">
+                        <p>Globally distributed systems with various consistency models</p>
+                    </div>
+                </a>
+                
+                <!-- High Availability -->
+                <a href="high_availibility.html" class="category-card high-availability">
+                    <div class="category-header">
+                        <h2>High Availability</h2>
+                    </div>
+                    <div class="category-body">
+                        <p>Fault-tolerant architectures and replication techniques for mission-critical systems</p>
+                    </div>
+                </a>
+
+                <!-- OLAP & Analytics -->
+                <a href="olap_analytics.html" class="category-card olap-analytics">
+                    <div class="category-header">
+                        <h2>OLAP & Analytics</h2>
+                    </div>
+                    <div class="category-body">
+                        <p>Data warehousing and analytical processing systems</p>
+                    </div>
+                </a>
+
+
+
+                <!-- AI & Databases -->
+                <a href="ai_databases.html" class="category-card ai-databases">
+                    <div class="category-header">
+                        <h2>AI & Databases</h2>
+                    </div>
+                    <div class="category-body">
+                        <p>Machine learning integration, autonomous databases and AI-powered optimization</p>
+                    </div>
+                </a>
+                
+                <!-- Database Architecture -->
+                <a href="database_architecture.html" class="category-card database-architecture">
+                    <div class="category-header">
+                        <h2>Database Architecture</h2>
+                    </div>
+                    <div class="category-body">
+                        <p>System design patterns and component organization</p>
+                    </div>
+                </a>
+                
+                <!-- Database Performance -->
+                <a href="database_performance.html" class="category-card database-performance">
+                    <div class="category-header">
+                        <h2>Database Performance</h2>
+                    </div>
+                    <div class="category-body">
+                        <p>Benchmarking methodologies and optimization techniques</p>
+                    </div>
+                </a>
+                
+                <!-- Database Testing -->
+                <a href="database_testing.html" class="category-card database-testing">
+                    <div class="category-header">
+                        <h2>Database Testing</h2>
+                    </div>
+                    <div class="category-body">
+                        <p>Verification and validation approaches for database systems</p>
+                    </div>
+                </a>
+    
+            </div>
+        </section>
+        
+        <footer>
+            <p>&copy; 2025 Database Research Center | Academic Resources</p>
+        </footer>
+    </div>
+</body>
+</html>

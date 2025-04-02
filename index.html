@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<!--
+This file is part of Computer Learning Resource Collection.
+
+Computer Learning Resource Collection is free software: you can redistribute it and/or modify
+it under the terms of the GNU General Public License as published by
+the Free Software Foundation, either version 3 of the License, or
+(at your option) any later version.
+
+Computer Learning Resource Collection is distributed in the hope that it will be useful,
+but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+GNU General Public License for more details.
+
+You should have received a copy of the GNU General Public License
+along with Computer Learning Resource Collection.  If not, see <https://www.gnu.org/licenses/>.
+
+Copyright (C) 2025 wangbin579
+-->
+
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Computer Learning Resource Center</title>
+    <style>
+        :root {
+            --reading: #3498db;
+            --practice: #9b59b6;
+            --premium: #e67e22;
+            --contact: #e74c3c;
+            --learning-paths: #f1c40f;
+            --text-dark: #2c3e50;
+            --text-light: #7f8c8d;
+            --border: #ecf0f1;
+            --white: #ffffff;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: var(--text-dark);
+            padding: 0 20px;
+        }
+        
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px 0;
+        }
+        
+        .main-header {
+            margin-bottom: 25px;
+        }
+        
+        .main-header h1 {
+            font-size: 2.2rem;
+            margin-bottom: 8px;
+            color: var(--text-dark);
+        }
+        
+        .subtitle {
+            font-size: 1.1rem;
+            color: var(--text-light);
+            margin: 0;
+        }
+        
+        .category-stack {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+        
+        .category-card {
+            border-radius: 6px;
+            overflow: hidden;
+            transition: all 0.25s ease;
+            display: flex;
+            flex-direction: column;
+            width: 100%;
+            border-left: 4px solid;
+        }
+        
+        .reading { border-left-color: var(--reading); }
+        .practice { border-left-color: var(--practice); }
+        .premium { border-left-color: var(--premium); }
+        .contact { border-left-color: var(--contact); }
+        .learning-paths { border-left-color: var(--learning-paths); }
+        
+        .category-card:hover {
+            transform: translateX(4px);
+            box-shadow: 2px 2px 12px rgba(0,0,0,0.08);
+        }
+        
+        .category-header {
+            padding: 16px 20px;
+            color: var(--white);
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+        
+        .reading .category-header { background-color: var(--reading); }
+        .practice .category-header { background-color: var(--practice); }
+        .premium .category-header { background-color: var(--premium); }
+        .contact .category-header { background-color: var(--contact); }
+        .learning-paths .category-header { background-color: var(--learning-paths); }
+        
+        .category-header h2 {
+            font-size: 1.2rem;
+            margin: 0;
+            font-weight: 600;
+        }
+        
+        .category-description {
+            padding: 14px 20px;
+            background: var(--white);
+            border: 1px solid var(--border);
+            border-top: none;
+            border-left: none;
+        }
+        
+        .category-description p {
+            color: var(--text-light);
+            margin: 0;
+            font-size: 0.95rem;
+        }
+        
+        .premium-badge {
+            display: inline-block;
+            background: var(--white);
+            padding: 3px 10px;
+            border-radius: 12px;
+            font-size: 0.75rem;
+            font-weight: 700;
+            text-transform: uppercase;
+        }
+        
+        .reading .premium-badge { color: var(--reading); }
+        .practice .premium-badge { color: var(--practice); }
+        .premium .premium-badge { color: var(--premium); }
+        .contact .premium-badge { color: var(--contact); }
+        .learning-paths .premium-badge { color: var(--learning-paths); }
+        
+        footer {
+            margin-top: 30px;
+            font-size: 0.9rem;
+            color: var(--text-light);
+        }
+        
+        footer a {
+            color: var(--reading);
+            text-decoration: none;
+        }
+        
+        footer a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header class="main-header">
+            <h1>Computer Learning Resource Center</h1>
+            <p class="subtitle">Browse learning and practice resources by category</p>
+        </header>
+        
+        <section class="category-stack">
+            <!-- Combined Reading Materials -->
+            <a href="reading/index.html" class="category-card reading">
+                <div class="category-header">
+                    <h2>Reading Materials</h2>
+                </div>
+                <div class="category-description">
+                    <p>Curated research papers and recommended books for all levels</p>
+                </div>
+            </a>
+
+            <a href="practice/index.html" class="category-card practice">
+                <div class="category-header">
+                    <h2>Practical Guides</h2>
+                </div>
+                <div class="category-description">
+                    <p>Practical tutorials for all skill levels</p>
+                </div>
+            </a>   
+            
+            <!-- Learning Paths -->
+            <a href="learning/index.html" class="category-card learning-paths">
+                <div class="category-header">
+                    <h2>Learning Paths</h2>
+                </div>
+                <div class="category-description">
+                    <p>Structured roadmaps for mastering computer science topics</p>
+                </div>
+            </a>
+        </section>
+        
+        <footer>
+            <p>&copy; 2025 Computer Learning Resource Center | <a href="privacy.html">Privacy Policy</a> | <a href="terms.html">Terms of Service</a></p>
+        </footer>
+    </div>
+</body>
+</html>

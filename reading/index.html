@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<!--
+This file is part of Computer Learning Resource Collection.
+
+Computer Learning Resource Collection is free software: you can redistribute it and/or modify
+it under the terms of the GNU General Public License as published by
+the Free Software Foundation, either version 3 of the License, or
+(at your option) any later version.
+
+Computer Learning Resource Collection is distributed in the hope that it will be useful,
+but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+GNU General Public License for more details.
+
+You should have received a copy of the GNU General Public License
+along with Computer Learning Resource Collection.  If not, see <https://www.gnu.org/licenses/>.
+
+Copyright (C) 2025 wangbin579
+-->
+
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Computer Learning Reading Materials</title>
+    <style>
+        /* Category-specific colors matching your main page */
+        .database .category-header { background-color: #3498db; }
+        .networking .category-header { background-color: #2ecc71; }
+        .ai .category-header { background-color: #e74c3c; }
+        .software-eng .category-header { background-color: #9b59b6; }
+        .distributed .category-header { background-color: #e67e22; }
+        .os .category-header { background-color: #1abc9c; } /* Teal for OS */
+        .math .category-header { background-color: #f1c40f; } /* Yellow for Math */
+        
+        .database .category-header {
+            background-color: #3498db; 
+        }
+        
+        .networking .category-header {
+            background-color: green; 
+        }
+        
+        .software-eng .category-header {
+            background-color: #9b59b6; 
+        }
+        
+        .distributed .category-header {
+            background-color: #e67e22; 
+        }
+        
+        .ai .category-header {
+            background-color: #e74c3c;
+        }
+
+        .os .category-header {
+            background-color: #1abc9c;
+        }
+
+        .math .category-header {
+            background-color: #f1c40f;
+        }
+
+        /* Reading materials grid enhancements */
+        .category-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 20px;
+            margin-top: 30px;
+        }
+        .category-card {
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+        }
+        .category-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+        }
+        .category-header {
+            padding: 20px;
+            color: white;
+            border-top-left-radius: 8px;
+            border-top-right-radius: 8px;
+        }
+        .category-description {
+            padding: 15px;
+            background: white;
+            border-bottom-left-radius: 8px;
+            border-bottom-right-radius: 8px;
+            flex-grow: 1;
+            border: 1px solid #eee;
+            border-top: none;
+        }
+        .category-description p {
+            color: #7f8c8d;
+            margin: 0;
+        }
+        
+        .back-link {
+            display: inline-block;
+            margin-bottom: 20px;
+            color: #3498db;
+            text-decoration: none;
+            font-weight: 500;
+        }
+        .back-link:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <a href="../index.html" class="back-link"><- Back to Main Page</a>
+        <header class="main-header">
+            <h1>Computer Learning Reading Materials</h1>
+            <p class="subtitle">Browse research papers and recommended books by category</p>
+        </header>
+        
+        <section class="category-grid">
+            <!-- Database Systems -->
+            <a href="database/index.html" class="category-card database">
+                <div class="category-header">
+                    <h2>Database Systems</h2>
+                </div>
+                <div class="category-description">
+                    <p>A wealth of research papers and practical books on database theory, implementation, and optimization, covering extensive content on MySQL, PostgreSQL, and distributed databases</p>
+                </div>
+            </a>
+            
+            <!-- Computer Networking -->
+            <a href="networking/index.html" class="category-card networking">
+                <div class="category-header">
+                    <h2>Computer Networking</h2>
+                </div>
+                <div class="category-description">
+                    <p>Resources on TCP/IP network protocols, RFC design, and network performance optimization</p>
+                </div>
+            </a>
+            
+            <!-- Artificial Intelligence -->
+            <a href="ai/index.html" class="category-card ai">
+                <div class="category-header">
+                    <h2>Artificial Intelligence</h2>
+                </div>
+                <div class="category-description">
+                    <p>AI-based programming resources and papers that popularize AI knowledge.</p>
+                </div>
+            </a>
+            
+            <!-- Software Engineering -->
+            <a href="software-engineering/index.html" class="category-card software-eng">
+                <div class="category-header">
+                    <h2>Software Engineering</h2>
+                </div>
+                <div class="category-description">
+                    <p>Papers and books on software architecture, performance optimization, code quality, debugging, testing, and root cause analysis.</p>
+                </div>
+            </a>
+
+
+
+            <!-- Operating Systems -->
+            <a href="os/index.html" class="category-card os">
+                <div class="category-header">
+                    <h2>Operating Systems</h2>
+                </div>
+                <div class="category-description">
+                    <p>Research papers on operating systems closely related to development.</p>
+                </div>
+            </a>
+
+            <!-- Mathematics -->
+            <a href="math/index.html" class="category-card math">
+                <div class="category-header">
+                    <h2>Mathematics</h2>
+                </div>
+                <div class="category-description">
+                    <p>Essential mathematical foundations for computer science.</p>
+                </div>
+            </a>
+            
+            <!-- Distributed Systems -->
+            <a href="distributed-file-system/index.html" class="category-card distributed">
+                <div class="category-header">
+                    <h2>Distributed File Systems</h2>
+                </div>
+                <div class="category-description">
+                    <p>Key papers on distributed file systems and architectures.</p>
+                </div>
+            </a>
+            
+            
+        </section>
+        
+        <footer>
+            <p>&copy; 2025 Computer Learning Resource Center</p>
+        </footer>
+    </div>
+</body>
+</html>

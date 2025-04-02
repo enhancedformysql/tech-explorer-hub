@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<!--
+This file is part of Computer Learning Resource Collection.
+
+Computer Learning Resource Collection is free software: you can redistribute it and/or modify
+it under the terms of the GNU General Public License as published by
+the Free Software Foundation, either version 3 of the License, or
+(at your option) any later version.
+
+Computer Learning Resource Collection is distributed in the hope that it will be useful,
+but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+GNU General Public License for more details.
+
+You should have received a copy of the GNU General Public License
+along with Computer Learning Resource Collection.  If not, see <https://www.gnu.org/licenses/>.
+
+Copyright (C) 2025 wangbin579
+-->
+
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Math & CS Research Hub</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        /* ===== MATH & CS COLOR SCHEME ===== */
+        :root {
+            --primary: #3498db;       /* Changed from red to blue */
+            --theoretical: green;    /* Theoretical blue */
+            --practical: #2ecc71;      /* Practical green */
+            --algebra: #9b59b6;       /* Algebra purple */
+            --analysis: #f39c12;      /* Analysis orange */
+            --discrete: #1abc9c;      /* Discrete teal */
+            --applied: #34495e;       /* Applied dark blue */
+            --dark: #2c3e50;          /* Text color */
+            --light: #ecf0f1;         /* Card background */
+            --beginner: #2ecc71;
+            --intermediate: #f1c40f;
+            --advanced: #3498db;      /* Changed from red to blue */
+            --star-filled: #f39c12;
+            --star-empty: #bdc3c7;
+        }
+
+        /* ===== BASE STRUCTURE ===== */
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: var(--dark);
+            background-color: #f9f9f9;
+            margin: 0;
+            padding: 0;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 30px 20px;
+        }
+
+        .back-link {
+            display: inline-block;
+            margin-bottom: 20px;
+            color: var(--primary);
+            text-decoration: none;
+            font-weight: 500;
+        }
+
+        .back-link:hover {
+            text-decoration: underline;
+        }
+
+        header {
+            margin-bottom: 40px;
+            text-align: center;
+        }
+
+        h1 {
+            color: var(--primary);
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+        }
+
+        .subtitle {
+            font-size: 1.2rem;
+            color: var(--dark);
+            margin: 0;
+        }
+
+         /* ===== PAPER SECTIONS ===== */
+        .paper-section {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 25px;
+            margin-top: 40px;
+        }
+
+        .paper-category {
+            background: white;
+            border-radius: 8px;
+            padding: 20px;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.08);
+        }
+
+        /* Category headers */
+        .paper-category h2 {
+            margin-top: 0;
+            padding-bottom: 10px;
+            border-bottom: 2px solid;
+            display: flex;
+            align-items: center;
+        }
+
+        .paper-category h2 i {
+            margin-right: 10px;
+        }
+
+        .theoretical h2 {
+            color: var(--theoretical);
+            border-color: var(--theoretical);
+        }
+
+        .practical h2 {
+            color: var(--practical);
+            border-color: var(--practical);
+        }
+
+        /* Paper items */
+        .paper-item {
+            padding: 15px;
+            margin-bottom: 15px;
+            border-left: 4px solid;
+            background: var(--light);
+            transition: all 0.2s ease;
+        }
+
+        .theoretical .paper-item {
+            border-left-color: var(--theoretical);
+        }
+
+        .practical .paper-item {
+            border-left-color: var(--practical);
+        }
+
+        .paper-item:hover {
+            transform: translateX(5px);
+            box-shadow: 2px 2px 8px rgba(0,0,0,0.1);
+        }
+
+        .paper-title {
+            font-weight: 600;
+            margin-bottom: 5px;
+            font-size: 1.05rem;
+        }
+
+        .paper-meta {
+            display: flex;
+            justify-content: space-between;
+            font-size: 0.9rem;
+            color: var(--dark);
+            margin-bottom: 8px;
+        }
+
+        .paper-difficulty {
+            font-weight: 600;
+        }
+
+        .paper-difficulty.beginner {
+            color: var(--beginner);
+        }
+
+        .paper-difficulty.intermediate {
+            color: var(--intermediate);
+        }
+
+        .paper-difficulty.advanced {
+            color: var(--advanced);
+        }
+
+        .paper-rating {
+            display: flex;
+            margin: 8px 0;
+        }
+
+        .star {
+            color: var(--star-empty);
+            margin-right: 3px;
+        }
+
+        .star.filled {
+            color: var(--star-filled);
+        }
+
+        .paper-download {
+            display: inline-block;
+            padding: 5px 12px;
+            background: var(--primary);  /* Now uses the blue color */
+            color: white;
+            text-decoration: none;
+            border-radius: 4px;
+            font-size: 0.85rem;
+            transition: background 0.2s;
+        }
+
+        .paper-download:hover {
+            background: #2980b9;  /* Darker blue for hover state */
+        }
+
+        .paper-abstract {
+            font-size: 0.9rem;
+            color: #555;
+            margin-top: 10px;
+            line-height: 1.5;
+        }
+
+        /* ===== RESPONSIVE DESIGN ===== */
+        @media (max-width: 900px) {
+            .paper-section {
+                grid-template-columns: 1fr;
+            }  
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <a href="../index.html" class="back-link"><i class="fas fa-arrow-left"></i> Back to Resources</a>
+        
+        <header>
+            <h1>Mathematics & Computer Science Research Hub</h1>
+            <p class="subtitle">From theoretical foundations to practical applications</p>
+        </header>
+        
+        <!-- ===== PAPER SECTIONS ===== -->
+        <div class="paper-section">
+            <!-- Theoretical Foundations -->
+            <div class="paper-category theoretical">
+                <h2><i class="fas fa-landmark"></i> Theoretical Foundations</h2>
+                <div class="paper-list">
+                    <div class="paper-item">
+                        <div class="paper-title">Computational Complexity: A Modern Approach</div>
+                        <div class="paper-meta">
+                            <span>Arora & Barak, 2007</span>
+                            <span class="paper-difficulty advanced">Advanced</span>
+                        </div>
+                        <div class="paper-rating">
+                            <i class="fas fa-star star filled"></i>
+                            <i class="fas fa-star star filled"></i>
+                            <i class="fas fa-star star filled"></i>
+                            <i class="fas fa-star star filled"></i>
+                            <i class="fas fa-star star filled"></i>
+                            <span style="margin-left: 5px; color: var(--star-filled);">5.0</span>
+                        </div>
+                        <div class="paper-abstract">
+                            A comprehensive introduction to computational complexity theory, covering P vs NP, circuit complexity, proof complexity, and more.
+                        </div>
+                        <a href="https://theory.cs.princeton.edu/complexity/book.pdf" class="paper-download">Download PDF</a>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Practical Applications -->
+            <div class="paper-category practical">
+                <h2><i class="fas fa-laptop-code"></i> Practical Applications</h2>
+                <div class="paper-list">
+                    <div class="paper-item">
+                        <div class="paper-title">The Art and Craft of Problem Solving</div>
+                        <div class="paper-meta">
+                            <span>Paul Zeitz, 1999</span>
+                            <span class="paper-difficulty beginner">Beginner</span>
+                        </div>
+                        <div class="paper-rating">
+                            <i class="fas fa-star star filled"></i>
+                            <i class="fas fa-star star filled"></i>
+                            <i class="fas fa-star star filled"></i>
+                            <i class="fas fa-star star filled"></i>
+                            <i class="fas fa-star star filled"></i>
+                            <span style="margin-left: 5px; color: var(--star-filled);">5.0</span>
+                        </div>
+                        <div class="paper-abstract">
+                            A book on problem-solving techniques and strategies that can be applied to mathematical and computational problems.
+                        </div>
+                        <a href="http://www.gang.umass.edu/~franz/Paul_Zeitz_The_Art_and_Craft_of_Problem_SolvingBookosorg.pdf" class="paper-download">Download PDF</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

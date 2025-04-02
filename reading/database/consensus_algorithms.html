@@ -1,0 +1,520 @@
+<!DOCTYPE html>
+<!--
+This file is part of Computer Learning Resource Collection.
+
+Computer Learning Resource Collection is free software: you can redistribute it and/or modify
+it under the terms of the GNU General Public License as published by
+the Free Software Foundation, either version 3 of the License, or
+(at your option) any later version.
+
+Computer Learning Resource Collection is distributed in the hope that it will be useful,
+but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+GNU General Public License for more details.
+
+You should have received a copy of the GNU General Public License
+along with Computer Learning Resource Collection.  If not, see <https://www.gnu.org/licenses/>.
+
+Copyright (C) 2025 wangbin579
+-->
+
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Consensus Algorithms Research Papers</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        /* ===== PROFESSIONAL COLOR SCHEME ===== */
+        :root {
+            --primary: #3498db;       /* Core consensus blue */
+            --theoretical: #e74c3c;    /* Theoretical red */
+            --practical: #2ecc71;      /* Practical green */
+            --byzantine: #9b59b6;     /* BFT purple */
+            --dark: #2c3e50;          /* Text color */
+            --light: #ecf0f1;         /* Card background */
+            --beginner: #2ecc71;
+            --intermediate: #f1c40f;
+            --advanced: #e74c3c;
+            --star-filled: #f39c12;
+            --star-empty: #bdc3c7;
+        }
+
+        /* ===== BASE STRUCTURE ===== */
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: var(--dark);
+            background-color: #f9f9f9;
+            margin: 0;
+            padding: 0;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 30px 20px;
+        }
+
+        .back-link {
+            display: inline-block;
+            margin-bottom: 20px;
+            color: var(--primary);
+            text-decoration: none;
+            font-weight: 500;
+        }
+
+        .back-link:hover {
+            text-decoration: underline;
+        }
+
+        header {
+            margin-bottom: 40px;
+            text-align: center;
+        }
+
+        h1 {
+            color: var(--primary);
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+        }
+
+        .subtitle {
+            font-size: 1.2rem;
+            color: var(--dark);
+            margin: 0;
+        }
+
+        /* ===== PAPER SECTIONS ===== */
+        .paper-section {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 25px;
+            margin-top: 40px;
+        }
+
+        .paper-category {
+            background: white;
+            border-radius: 8px;
+            padding: 20px;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.08);
+        }
+
+        /* Category headers */
+        .paper-category h2 {
+            margin-top: 0;
+            padding-bottom: 10px;
+            border-bottom: 2px solid;
+            display: flex;
+            align-items: center;
+        }
+
+        .paper-category h2 i {
+            margin-right: 10px;
+        }
+
+        .theoretical h2 {
+            color: var(--theoretical);
+            border-color: var(--theoretical);
+        }
+
+        .practical h2 {
+            color: var(--practical);
+            border-color: var(--practical);
+        }
+
+        .byzantine h2 {
+            color: var(--byzantine);
+            border-color: var(--byzantine);
+        }
+
+        /* Paper items */
+        .paper-item {
+            padding: 15px;
+            margin-bottom: 15px;
+            border-left: 4px solid;
+            background: var(--light);
+            transition: all 0.2s ease;
+        }
+
+        .theoretical .paper-item {
+            border-left-color: var(--theoretical);
+        }
+
+        .practical .paper-item {
+            border-left-color: var(--practical);
+        }
+
+        .byzantine .paper-item {
+            border-left-color: var(--byzantine);
+        }
+
+        .paper-item:hover {
+            transform: translateX(5px);
+            box-shadow: 2px 2px 8px rgba(0,0,0,0.1);
+        }
+
+        .paper-title {
+            font-weight: 600;
+            margin-bottom: 5px;
+            font-size: 1.05rem;
+        }
+
+        .paper-meta {
+            display: flex;
+            justify-content: space-between;
+            font-size: 0.9rem;
+            color: var(--dark);
+            margin-bottom: 8px;
+        }
+
+        .paper-difficulty {
+            font-weight: 600;
+        }
+
+        .paper-difficulty.beginner {
+            color: var(--beginner);
+        }
+
+        .paper-difficulty.intermediate {
+            color: var(--intermediate);
+        }
+
+        .paper-difficulty.advanced {
+            color: var(--advanced);
+        }
+
+        .paper-rating {
+            display: flex;
+            margin: 8px 0;
+        }
+
+        .star {
+            color: var(--star-empty);
+            margin-right: 3px;
+        }
+
+        .star.filled {
+            color: var(--star-filled);
+        }
+
+        .paper-download {
+            display: inline-block;
+            padding: 5px 12px;
+            background: var(--primary);
+            color: white;
+            text-decoration: none;
+            border-radius: 4px;
+            font-size: 0.85rem;
+            transition: background 0.2s;
+        }
+
+        .paper-download:hover {
+            background: #2980b9;
+        }
+
+        .paper-abstract {
+            font-size: 0.9rem;
+            color: #555;
+            margin-top: 10px;
+            line-height: 1.5;
+        }
+
+        /* ===== RESPONSIVE DESIGN ===== */
+        @media (max-width: 900px) {
+            .paper-section {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <a href="index.html" class="back-link"><i class="fas fa-arrow-left"></i> Back to Resources</a>
+        
+        <header>
+            <h1>Consensus Algorithm Research</h1>
+            <p class="subtitle">From theoretical foundations to production systems</p>
+        </header>
+        
+        <!-- ===== PAPER SECTIONS ===== -->
+        <div class="paper-section">
+            <!-- Theoretical Algorithms -->
+            <div class="paper-category theoretical">
+                <h2><i class="fas fa-landmark"></i> Theoretical Algorithms</h2>
+                <div class="paper-list">
+                    <div class="paper-item">
+                        <div class="paper-title">Distributed consensus revised</div>
+                        <div class="paper-meta">
+                            <span>Heidi Howard, 2019</span>
+                            <span class="paper-difficulty advanced">Advanced</span>
+                        </div>
+                        <div class="paper-rating">
+                            <i class="fas fa-star star filled"></i>
+                            <i class="fas fa-star star filled"></i>
+                            <i class="fas fa-star star filled"></i>
+                            <i class="fas fa-star star filled"></i>
+                            <i class="fas fa-star-half-alt star filled"></i>
+                            <span style="margin-left: 5px; color: var(--star-filled);">4.5</span>
+                        </div>
+                        <div class="paper-abstract">
+                            A PhD thesis revisiting distributed consensus algorithms and their practical implementations.
+                        </div>
+                        <a href="https://www.cl.cam.ac.uk/techreports/UCAM-CL-TR-935.pdf" class="paper-download">Download PDF</a>
+                    </div>
+                    
+                    <div class="paper-item">
+                        <div class="paper-title">Paxos Made Simple</div>
+                        <div class="paper-meta">
+                            <span>Leslie Lamport, 2001</span>
+                            <span class="paper-difficulty advanced">Advanced</span>
+                        </div>
+                        <div class="paper-rating">
+                            <i class="fas fa-star star filled"></i>
+                            <i class="fas fa-star star filled"></i>
+                            <i class="fas fa-star star filled"></i>
+                            <i class="fas fa-star star filled"></i>
+                            <i class="fas fa-star star filled"></i>
+                            <span style="margin-left: 5px; color: var(--star-filled);">5.0</span>
+                        </div>
+                        <div class="paper-abstract">
+                            Simplified explanation of the Paxos algorithm, making it more accessible for practical implementation in distributed systems.
+                        </div>
+                        <a href="https://lamport.azurewebsites.net/pubs/paxos-simple.pdf" class="paper-download">Download PDF</a>
+                    </div>
+                    
+                    <div class="paper-item">
+                        <div class="paper-title">In Search of an Understandable Consensus Algorithm</div>
+                        <div class="paper-meta">
+                            <span>Diego Ongaro et al., 2014</span>
+                            <span class="paper-difficulty advanced">Advanced</span>
+                        </div>
+                        <div class="paper-rating">
+                            <i class="fas fa-star star filled"></i>
+                            <i class="fas fa-star star filled"></i>
+                            <i class="fas fa-star star filled"></i>
+                            <i class="fas fa-star star filled"></i>
+                            <i class="fas fa-star star filled"></i>
+                            <span style="margin-left: 5px; color: var(--star-filled);">5.0</span>
+                        </div>
+                        <div class="paper-abstract">
+                            Raft is a consensus algorithm for managing a replicated log. It produces a result equivalent to (multi-)Paxos, and it is as efficient as Paxos, but its structure is different from Paxos; this makes Raft more understandable than Paxos and also provides a better foundation for building practical systems.
+                        </div>
+                        <a href="https://raft.github.io/raft.pdf" class="paper-download">Download PDF</a>
+                    </div>
+                    									
+										<div class="paper-item">
+										    <div class="paper-title">State Machine Replication for Wide Area Networks</div>
+										    <div class="paper-meta">
+										        <span>Yanhua Mao, 2010</span>
+										        <span class="paper-difficulty advanced">Advanced</span>
+										    </div>
+										    <div class="paper-rating">
+										        <i class="fas fa-star star filled"></i>
+										        <i class="fas fa-star star filled"></i>
+										        <i class="fas fa-star star filled"></i>
+										        <i class="fas fa-star star filled"></i>
+										        <i class="far fa-star star"></i>
+										        <span style="margin-left: 5px; color: var(--star-filled);">4.0</span>
+										    </div>
+										    <div class="paper-abstract">
+										        A PhD thesis on state machine replication for wide area networks.
+										    </div>
+										    <a href="https://escholarship.org/content/qt9m759181/qt9m759181.pdf" class="paper-download">Download PDF</a>
+										</div>
+                </div>
+            </div>
+            
+            <!-- Practical Applications -->
+            <div class="paper-category practical">
+                <h2><i class="fas fa-microchip"></i> Practical Applications</h2>
+                <div class="paper-list">
+                    <div class="paper-item">
+                        <div class="paper-title">Building and deploying MySQL Raft at Meta</div>
+                        <div class="paper-meta">
+                            <span>Anirban Rahut et al., 2023</span>
+                            <span class="paper-difficulty beginner">Beginner</span>
+                        </div>
+                        <div class="paper-rating">
+                            <i class="fas fa-star star filled"></i>
+                            <i class="fas fa-star star filled"></i>
+                            <i class="fas fa-star star filled"></i>
+                            <i class="fas fa-star star filled"></i>
+                            <i class="fas fa-star star filled"></i>
+                            <span style="margin-left: 5px; color: var(--star-filled);">5.0</span>
+                        </div>
+                        <div class="paper-abstract">
+                            A case study on deploying MySQL Raft at Meta for improved distributed consensus.
+                        </div>
+                        <a href="https://engineering.fb.com/2023/05/16/data-infrastructure/mysql-raft-meta/" class="paper-download">View Article</a>
+                    </div>
+                    
+
+                    <div class="paper-item">
+                        <div class="paper-title">Paxos Made Live - An Engineering Perspective</div>
+                        <div class="paper-meta">
+                            <span>Tushar Chandra et al., 2007</span>
+                            <span class="paper-difficulty beginner">Beginner</span>
+                        </div>
+                        <div class="paper-rating">
+                            <i class="fas fa-star star filled"></i>
+                            <i class="fas fa-star star filled"></i>
+                            <i class="fas fa-star star filled"></i>
+                            <i class="fas fa-star star filled"></i>
+                            <i class="fas fa-star star filled"></i>
+                            <span style="margin-left: 5px; color: var(--star-filled);">5.0</span>
+                        </div>
+                        <div class="paper-abstract">
+                            We describe our experience in building a fault-tolerant database using the Paxos consensus algorithm. Despite the existing literature in the field, building such a database proved to be non-trivial. We describe selected algorithmic and engineering problems encountered, and the solutions we found for them. Our measurements indicate that we have built a competitive system.
+                        </div>
+                        <a href="https://www.cs.utexas.edu/~lorenzo/corsi/cs380d/papers/paper2-1.pdf" class="paper-download">Download PDF</a>
+                    </div>
+                    
+                    <div class="paper-item">
+                        <div class="paper-title">Paxos for System Builders</div>
+                        <div class="paper-meta">
+                            <span>Jonathan Kirsch et al., 2008</span>
+                            <span class="paper-difficulty beginner">Beginner</span>
+                        </div>
+                        <div class="paper-rating">
+                            <i class="fas fa-star star filled"></i>
+                            <i class="fas fa-star star filled"></i>
+                            <i class="fas fa-star star filled"></i>
+                            <i class="fas fa-star star filled"></i>
+                            <i class="fas fa-star star filled"></i>
+                            <span style="margin-left: 5px; color: var(--star-filled);">5.0</span>
+                        </div>
+                        <div class="paper-abstract">
+                            This paper presents a complete specification of the Paxos replication protocol such that system builders can understand it and implement it. We evaluate the performance of a prototype implementation and detail the safety and liveness properties guaranteed by our specification of Paxos.
+                        </div>
+                        <a href="https://paper-notes.zhjwpku.com/assets/pdfs/paxos_for_system_builders.pdf" class="paper-download">Download PDF</a>
+                    </div>
+
+                    <div class="paper-item">
+                        <div class="paper-title">Designing an efficient replicated log store with consensus protocol</div>
+                        <div class="paper-meta">
+                            <span>Guoliang Jin et al., 2012</span>
+                            <span class="paper-difficulty intermediate">Intermediate</span>
+                        </div>
+                        <div class="paper-rating">
+                            <i class="fas fa-star star filled"></i>
+                            <i class="fas fa-star star filled"></i>
+                            <i class="fas fa-star star filled"></i>
+                            <i class="fas fa-star star filled"></i>
+                            <i class="fas fa-star star filled"></i>
+                            <span style="margin-left: 5px; color: var(--star-filled);">5.0</span>
+                        </div>
+                        <div class="paper-abstract">
+                            A study on designing efficient replicated log stores using consensus protocols.
+                        </div>
+                        <a href="https://www.usenix.org/system/files/hotcloud19-paper-ahn.pdf" class="paper-download">Download PDF</a>
+                    </div>
+                                      
+                    <div class="paper-item">
+                        <div class="paper-title">Using Paxos to Build a scalable, consistent, and highly available datastore</div>
+                        <div class="paper-meta">
+                            <span>Rao et al., 2011</span>
+                            <span class="paper-difficulty intermediate">Intermediate</span>
+                        </div>
+                        <div class="paper-rating">
+                            <i class="fas fa-star star filled"></i>
+                            <i class="fas fa-star star filled"></i>
+                            <i class="fas fa-star star filled"></i>
+                            <i class="fas fa-star star filled"></i>
+                            <i class="fas fa-star star filled"></i>
+                            <span style="margin-left: 5px; color: var(--star-filled);">5.0</span>
+                        </div>
+                        <div class="paper-abstract">
+                            A case study on building a scalable and consistent datastore using Paxos.
+                        </div>
+                        <a href="https://arxiv.org/pdf/1103.2408" class="paper-download">Download PDF</a>
+                    </div>
+                    
+                    <div class="paper-item">
+										    <div class="paper-title">Designing an efficient replicated log store with consensus protocol</div>
+										    <div class="paper-meta">
+										        <span>Ahn et al., 2019</span>
+										        <span class="paper-difficulty intermediate">Intermediate</span>
+										    </div>
+										    <div class="paper-rating">
+										        <i class="fas fa-star star filled"></i>
+										        <i class="fas fa-star star filled"></i>
+										        <i class="fas fa-star star filled"></i>
+										        <i class="fas fa-star star filled"></i>
+										        <i class="far fa-star star"></i>
+										        <span style="margin-left: 5px; color: var(--star-filled);">4.0</span>
+										    </div>
+										    <div class="paper-abstract">
+										        A study on designing efficient replicated log stores using consensus protocols.
+										    </div>
+										    <a href="https://www.usenix.org/system/files/hotcloud19-paper-ahn.pdf" class="paper-download">Download PDF</a>
+										</div>
+									
+                    <div class="paper-item">
+										    <div class="paper-title">JPaxos: state machine replication based on the Paxos protocol</div>
+										    <div class="paper-meta">
+										        <span>2011</span>
+										        <span class="paper-difficulty intermediate">Intermediate</span>
+										    </div>
+										    <div class="paper-rating">
+										        <i class="fas fa-star star filled"></i>
+										        <i class="fas fa-star star filled"></i>
+										        <i class="fas fa-star star filled"></i>
+										        <i class="fas fa-star star filled"></i>
+										        <i class="far fa-star star"></i>
+										        <span style="margin-left: 5px; color: var(--star-filled);">4.0</span>
+										    </div>
+										    <div class="paper-abstract">
+										        A technical report on implementing state machine replication using the Paxos protocol.
+										    </div>
+										    <a href="https://www.cs.put.poznan.pl/pawelw/pub/EPFL-REPORT-167765.pdf" class="paper-download">Download PDF</a>
+										</div>
+							
+							
+							
+                    <div class="paper-item">
+                        <div class="paper-title">Tuning Paxos for high-throughput with batching and pipelining</div>
+                        <div class="paper-meta">
+                            <span>N. Santos and A. Schiper, 2012</span>
+                            <span class="paper-difficulty intermediate">Intermediate</span>
+                        </div>
+                        <div class="paper-rating">
+                            <i class="fas fa-star star filled"></i>
+                            <i class="fas fa-star star filled"></i>
+                            <i class="fas fa-star star filled"></i>
+                            <i class="fas fa-star star filled"></i>
+                            <i class="fas fa-star star filled"></i>
+                            <span style="margin-left: 5px; color: var(--star-filled);">5.0</span>
+                        </div>
+                        <div class="paper-abstract">
+                            A study on improving Paxos performance through batching and pipelining.
+                        </div>
+                        <a href="https://citeseerx.ist.psu.edu/document?repid=rep1&type=pdf&doi=b3ea3d9af68e52d689d02705bfc8f95e3755cda6" class="paper-download">Download PDF</a>
+                    </div>
+                    
+                    <div class="paper-item">
+                        <div class="paper-title">FlexiRaft: Flexible Quorums with Raft</div>
+                        <div class="paper-meta">
+                            <span>Ritwik Yadav and Anirban Rahut, 2023</span>
+                            <span class="paper-difficulty intermediate">Intermediate</span>
+                        </div>
+                        <div class="paper-rating">
+                            <i class="fas fa-star star filled"></i>
+                            <i class="fas fa-star star filled"></i>
+                            <i class="fas fa-star star filled"></i>
+                            <i class="fas fa-star star filled"></i>
+                            <i class="fas fa-star star filled"></i>
+                            <span style="margin-left: 5px; color: var(--star-filled);">5.0</span>
+                        </div>
+                        <div class="paper-abstract">
+                            A study on flexible quorum systems for Raft-based distributed consensus.
+                        </div>
+                        <a href="https://www.cidrdb.org/cidr2023/papers/p83-yadav.pdf" class="paper-download">Download PDF</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</body>
+</html>

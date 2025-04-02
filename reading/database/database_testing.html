@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<!--
+This file is part of Computer Learning Resource Collection.
+
+Computer Learning Resource Collection is free software: you can redistribute it and/or modify
+it under the terms of the GNU General Public License as published by
+the Free Software Foundation, either version 3 of the License, or
+(at your option) any later version.
+
+Computer Learning Resource Collection is distributed in the hope that it will be useful,
+but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+GNU General Public License for more details.
+
+You should have received a copy of the GNU General Public License
+along with Computer Learning Resource Collection.  If not, see <https://www.gnu.org/licenses/>.
+
+Copyright (C) 2025 wangbin579
+-->
+
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Database Testing Research Papers</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --primary: #3498db;
+            --secondary: #e74c3c;
+            --dark: #2c3e50;
+            --light: #ecf0f1;
+            --theory: #9b59b6;
+            --practice: #2ecc71;
+            --beginner: #2ecc71;
+            --intermediate: #f1c40f;
+            --advanced: #e74c3c;
+            --star-filled: #f39c12;
+            --star-empty: #bdc3c7;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: var(--dark);
+            background-color: #f9f9f9;
+            margin: 0;
+            padding: 0;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 30px 20px;
+        }
+        
+        .back-link {
+            display: inline-block;
+            margin-bottom: 20px;
+            color: var(--primary);
+            text-decoration: none;
+            font-weight: 500;
+        }
+        
+        .back-link:hover {
+            text-decoration: underline;
+        }
+        
+        header {
+            margin-bottom: 40px;
+            text-align: center;
+        }
+        
+        h1 {
+            color: var(--primary);
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+        }
+        
+        .subtitle {
+            font-size: 1.2rem;
+            color: var(--dark);
+            margin: 0;
+        }
+        
+        .paper-section {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 25px;
+            margin-top: 40px;
+        }
+        
+        .paper-category {
+            background: white;
+            border-radius: 8px;
+            padding: 20px;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.08);
+        }
+        
+        .paper-category h2 {
+            margin-top: 0;
+            padding-bottom: 10px;
+            border-bottom: 2px solid;
+            display: flex;
+            align-items: center;
+        }
+        
+        .paper-category h2 i {
+            margin-right: 10px;
+        }
+        
+        .theory h2 {
+            color: var(--theory);
+            border-color: var(--theory);
+        }
+        
+        .practice h2 {
+            color: var(--practice);
+            border-color: var(--practice);
+        }
+        
+        .paper-list {
+            margin-top: 15px;
+        }
+        
+        .paper-item {
+            padding: 15px;
+            margin-bottom: 15px;
+            border-left: 4px solid;
+            background: var(--light);
+            transition: all 0.2s ease;
+        }
+        
+        .theory .paper-item {
+            border-left-color: var(--theory);
+        }
+        
+        .practice .paper-item {
+            border-left-color: var(--practice);
+        }
+        
+        .paper-item:hover {
+            transform: translateX(5px);
+            box-shadow: 2px 2px 8px rgba(0,0,0,0.1);
+        }
+        
+        .paper-title {
+            font-weight: 600;
+            margin-bottom: 5px;
+            font-size: 1.05rem;
+        }
+        
+        .paper-meta {
+            display: flex;
+            justify-content: space-between;
+            font-size: 0.9rem;
+            color: var(--dark);
+            margin-bottom: 8px;
+        }
+        
+        .paper-difficulty {
+            font-weight: 600;
+        }
+        
+        .paper-difficulty.beginner {
+            color: var(--beginner);
+        }
+        
+        .paper-difficulty.intermediate {
+            color: var(--intermediate);
+        }
+        
+        .paper-difficulty.advanced {
+            color: var(--advanced);
+        }
+        
+        .paper-rating {
+            display: flex;
+            margin: 8px 0;
+        }
+        
+        .star {
+            color: var(--star-empty);
+            margin-right: 3px;
+        }
+        
+        .star.filled {
+            color: var(--star-filled);
+        }
+        
+        .paper-download {
+            display: inline-block;
+            padding: 5px 12px;
+            background: var(--primary);
+            color: white;
+            text-decoration: none;
+            border-radius: 4px;
+            font-size: 0.85rem;
+            transition: background 0.2s;
+        }
+        
+        .paper-download:hover {
+            background: #2980b9;
+        }
+        
+        .paper-abstract {
+            font-size: 0.9rem;
+            color: #555;
+            margin-top: 10px;
+            line-height: 1.5;
+        }
+        
+        @media (max-width: 900px) {
+            .paper-section {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <a href="index.html" class="back-link"><i class="fas fa-arrow-left"></i> Back to Resources</a>
+        
+        <header>
+            <h1>Database Testing Research Papers</h1>
+            <p class="subtitle">Theoretical foundations and practical implementations for database testing</p>
+        </header>
+        
+        <div class="paper-section">
+            <div class="paper-category theory">
+                <h2><i class="fas fa-atom"></i> Theoretical Foundations</h2>
+                <div class="paper-list">
+                    <!-- Theoretical Papers -->
+                    <div class="paper-item">
+                        <div class="paper-title">Fair Benchmarking Considered Difficult: Common Pitfalls In Database Performance Testing</div>
+                        <div class="paper-meta">
+                            <span>M. Raasveldt et al., 2018</span>
+                            <span class="paper-difficulty beginner">Beginner</span>
+                        </div>
+                        <div class="paper-rating">
+                            <i class="fas fa-star star filled"></i>
+                            <i class="fas fa-star star filled"></i>
+                            <i class="fas fa-star star filled"></i>
+                            <i class="fas fa-star star filled"></i>
+                            <i class="fas fa-star star filled"></i>
+                            <span style="margin-left: 5px; color: var(--star-filled);">5.0</span>
+                        </div>
+                        <div class="paper-abstract">
+                            A theoretical discussion on common pitfalls in benchmarking database systems and the principles for fair performance evaluation.
+                        </div>
+                        <a href="https://hannes.muehleisen.org/publications/DBTEST2018-performance-testing.pdf" class="paper-download">Download PDF</a>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="paper-category practice">
+                <h2><i class="fas fa-laptop-code"></i> Practical Implementations</h2>
+                <div class="paper-list">
+                    <!-- Practical Papers -->
+                    <div class="paper-item">
+                        <div class="paper-title">Performance evaluation of TPC-C benchmark on various cloud providers</div>
+                        <div class="paper-meta">
+                            <span>R. N. Avula and C. Zou, 2020</span>
+                            <span class="paper-difficulty beginner">Beginner</span>
+                        </div>
+                        <div class="paper-rating">
+                            <i class="fas fa-star star filled"></i>
+                            <i class="fas fa-star star filled"></i>
+                            <i class="fas fa-star star filled"></i>
+                            <i class="fas fa-star star filled"></i>
+                            <i class="far fa-star star"></i>
+                            <span style="margin-left: 5px; color: var(--star-filled);">4.0</span>
+                        </div>
+                        <div class="paper-abstract">
+                            A practical comparative study of TPC-C benchmark performance across various cloud providers with implementation details.
+                        </div>
+                        <a href="https://www.cs.ucf.edu/~czou/research/Raghu-UEMCON-2020.pdf" class="paper-download">Download PDF</a>
+                    </div>
+                    
+                    <div class="paper-item">
+                        <div class="paper-title">Oracle Database Replay</div>
+                        <div class="paper-meta">
+                            <span>Romain Colle et al., 2009</span>
+                            <span class="paper-difficulty beginner">Beginner</span>
+                        </div>
+                        <div class="paper-rating">
+                            <i class="fas fa-star star filled"></i>
+                            <i class="fas fa-star star filled"></i>
+                            <i class="fas fa-star star filled"></i>
+                            <i class="fas fa-star star filled"></i>
+                            <i class="fas fa-star star filled"></i>
+                            <span style="margin-left: 5px; color: var(--star-filled);">5.0</span>
+                        </div>
+                        <div class="paper-abstract">
+                            A practical implementation of database workload capture and replay technology in Oracle Database.
+                        </div>
+                        <a href="http://www.vldb.org/pvldb/vol2/vldb09-588.pdf" class="paper-download">Download PDF</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

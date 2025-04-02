@@ -1,0 +1,606 @@
+<!DOCTYPE html>
+<!--
+This file is part of Computer Learning Resource Collection.
+
+Computer Learning Resource Collection is free software: you can redistribute it and/or modify
+it under the terms of the GNU General Public License as published by
+the Free Software Foundation, either version 3 of the License, or
+(at your option) any later version.
+
+Computer Learning Resource Collection is distributed in the hope that it will be useful,
+but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+GNU General Public License for more details.
+
+You should have received a copy of the GNU General Public License
+along with Computer Learning Resource Collection.  If not, see <https://www.gnu.org/licenses/>.
+
+Copyright (C) 2025 wangbin579
+-->
+
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Distributed File Systems Research Hub</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            /* Color Scheme */
+            --primary: #3498db;
+            --architecture: #e74c3c;
+            --scalability: #2ecc71;
+            --consistency: #9b59b6;
+            --performance: #f39c12;
+            --dark: #2c3e50;
+            --light: #ecf0f1;
+            --beginner: #2ecc71;
+            --intermediate: #f1c40f;
+            --advanced: #e74c3c;
+            --star-filled: #f39c12;
+            --star-empty: #bdc3c7;
+            --white: #ffffff;
+            --shadow: 0 3px 10px rgba(0,0,0,0.08);
+        }
+
+        /* Base Styles */
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: var(--dark);
+            background-color: #f9f9f9;
+            margin: 0;
+            padding: 0;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 30px 20px;
+        }
+
+        /* Navigation */
+        .back-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            margin-bottom: 20px;
+            color: var(--primary);
+            text-decoration: none;
+            font-weight: 500;
+            transition: opacity 0.2s;
+        }
+
+        .back-link:hover {
+            opacity: 0.8;
+        }
+
+        /* Header */
+        header {
+            margin-bottom: 40px;
+        }
+
+        h1 {
+            color: var(--primary);
+            font-size: 2.2rem;
+            margin-bottom: 8px;
+        }
+
+        .subtitle {
+            font-size: 1.1rem;
+            color: var(--dark);
+            margin: 0;
+            opacity: 0.9;
+        }
+
+        /* Concept Map */
+        .concept-map {
+            background: var(--white);
+            border-radius: 8px;
+            padding: 20px;
+            margin-bottom: 30px;
+            box-shadow: var(--shadow);
+        }
+
+        .map-container {
+            width: 100%;
+            height: 350px;
+            background: #f5f7fa;
+            border-radius: 4px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .map-node {
+            position: absolute;
+            width: 150px;
+            padding: 12px;
+            border-radius: 6px;
+            box-shadow: var(--shadow);
+            text-align: center;
+            transition: all 0.3s ease;
+            transform: translate(-50%, -50%);
+            cursor: pointer;
+            z-index: 1;
+        }
+
+        .map-node:hover {
+            transform: translate(-50%, -50%) scale(1.05);
+            z-index: 2;
+        }
+
+        /* Node Colors */
+        .map-node.core { background: var(--primary); color: var(--white); }
+        .map-node.architecture { background: var(--architecture); color: var(--white); }
+        .map-node.scalability { background: var(--scalability); color: var(--white); }
+        .map-node.consistency { background: var(--consistency); color: var(--white); }
+        .map-node.performance { background: var(--performance); color: var(--white); }
+
+        /* Node Positions */
+        .map-node.core { top: 50%; left: 50%; width: 170px; }
+        .map-node.architecture { top: 25%; left: 20%; }
+        .map-node.scalability { top: 25%; left: 80%; }
+        .map-node.consistency { top: 75%; left: 20%; }
+        .map-node.performance { top: 75%; left: 80%; }
+
+        /* Papers Grid */
+        .papers-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 25px;
+            margin-top: 30px;
+        }
+
+        .paper-card {
+            background: var(--white);
+            border-radius: 8px;
+            padding: 20px;
+            box-shadow: var(--shadow);
+            transition: transform 0.3s ease;
+        }
+
+        .paper-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .paper-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-bottom: 12px;
+        }
+
+        .paper-title {
+            font-weight: 600;
+            font-size: 1.1rem;
+            margin: 0;
+            flex: 1;
+        }
+
+        .paper-meta {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-end;
+        }
+
+        .paper-year {
+            font-size: 0.85rem;
+            color: var(--dark);
+            opacity: 0.8;
+        }
+
+        .paper-difficulty {
+            font-size: 0.8rem;
+            font-weight: 600;
+            padding: 2px 8px;
+            border-radius: 4px;
+            margin-top: 4px;
+        }
+
+        .beginner { background: rgba(46, 204, 113, 0.1); color: var(--beginner); }
+        .intermediate { background: rgba(241, 196, 15, 0.1); color: var(--intermediate); }
+        .advanced { background: rgba(231, 76, 60, 0.1); color: var(--advanced); }
+
+        .paper-rating {
+            display: flex;
+            align-items: center;
+            margin: 8px 0;
+        }
+
+        .star {
+            color: var(--star-empty);
+            font-size: 0.9rem;
+            margin-right: 2px;
+        }
+
+        .star.filled {
+            color: var(--star-filled);
+        }
+
+        .rating-value {
+            margin-left: 5px;
+            font-size: 0.85rem;
+            color: var(--star-filled);
+        }
+
+        .paper-abstract {
+            font-size: 0.9rem;
+            color: #555;
+            margin: 12px 0;
+            line-height: 1.5;
+        }
+
+        .paper-actions {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-top: 15px;
+        }
+
+        .paper-download {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            padding: 6px 12px;
+            background: var(--primary);
+            color: var(--white);
+            text-decoration: none;
+            border-radius: 4px;
+            font-size: 0.85rem;
+            transition: background 0.2s;
+        }
+
+        .paper-download:hover {
+            background: #2980b9;
+        }
+
+        /* Footer */
+        footer {
+            margin-top: 50px;
+            padding-top: 20px;
+            border-top: 1px solid #eee;
+            text-align: center;
+            font-size: 0.9rem;
+            color: var(--dark);
+            opacity: 0.7;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .papers-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            h1 {
+                font-size: 1.8rem;
+            }
+            
+            .map-node {
+                width: 130px;
+                padding: 10px;
+                font-size: 0.85rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <a href="../index.html" class="back-link">
+            <i class="fas fa-arrow-left"></i> Back to Resources
+        </a>
+        
+        <header>
+            <h1>Distributed File Systems Research Hub</h1>
+            <p class="subtitle">Key papers and resources on distributed storage architectures</p>
+        </header>
+        
+        <!-- Concept Visualization -->
+        <section class="concept-map">
+            <h2>Core Concepts of Distributed File Systems</h2>
+            <div class="map-container" id="conceptMap">
+                <div class="map-node core" id="core-node">
+                    <h3 style="margin: 0;">Distributed FS</h3>
+                    <p style="margin: 5px 0 0; font-size: 0.8rem;">Scalable, fault-tolerant storage</p>
+                </div>
+                
+                <div class="map-node architecture" id="architecture-node">
+                    <h4 style="margin: 0;">Architecture</h4>
+                    <p style="margin: 5px 0 0; font-size: 0.7rem;">Metadata servers, data nodes</p>
+                </div>
+                
+                <div class="map-node scalability" id="scalability-node">
+                    <h4 style="margin: 0;">Scalability</h4>
+                    <p style="margin: 5px 0 0; font-size: 0.7rem;">Sharding, partitioning</p>
+                </div>
+                
+                <div class="map-node consistency" id="consistency-node">
+                    <h4 style="margin: 0;">Consistency</h4>
+                    <p style="margin: 5px 0 0; font-size: 0.7rem;">Strong vs. eventual</p>
+                </div>
+                
+                <div class="map-node performance" id="performance-node">
+                    <h4 style="margin: 0;">Performance</h4>
+                    <p style="margin: 5px 0 0; font-size: 0.7rem;">Caching, prefetching</p>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Research Papers -->
+        <section class="papers-section">
+            <h2>Featured Research Papers</h2>
+            <div class="papers-grid">
+                <!-- Paper 1 -->
+                <article class="paper-card">
+                    <div class="paper-header">
+                        <h3 class="paper-title">The Google File System</h3>
+                        <div class="paper-meta">
+                            <span class="paper-year">2003</span>
+                            <span class="paper-difficulty intermediate">Intermediate</span>
+                        </div>
+                    </div>
+                    <div class="paper-rating">
+                        <i class="fas fa-star star filled"></i>
+                        <i class="fas fa-star star filled"></i>
+                        <i class="fas fa-star star filled"></i>
+                        <i class="fas fa-star star filled"></i>
+                        <i class="fas fa-star star filled"></i>
+                        <span class="rating-value">5.0</span>
+                    </div>
+                    <p class="paper-abstract">
+                        The foundational paper describing Google's scalable distributed file system designed for large-scale data processing workloads on commodity hardware.
+                    </p>
+                    <div class="paper-actions">
+                        <a href="https://static.googleusercontent.com/media/research.google.com/zh-CN//archive/gfs-sosp2003.pdf" class="paper-download">
+                            <i class="fas fa-download"></i> Download PDF
+                        </a>
+                    </div>
+                </article>
+                
+                <!-- Paper 2 -->
+                <article class="paper-card">
+                    <div class="paper-header">
+                        <h3 class="paper-title">HDFS: Hadoop Distributed File System</h3>
+                        <div class="paper-meta">
+                            <span class="paper-year">2010</span>
+                            <span class="paper-difficulty intermediate">Intermediate</span>
+                        </div>
+                    </div>
+                    <div class="paper-rating">
+                        <i class="fas fa-star star filled"></i>
+                        <i class="fas fa-star star filled"></i>
+                        <i class="fas fa-star star filled"></i>
+                        <i class="fas fa-star star filled"></i>
+                        <i class="fas fa-star-half-alt star filled"></i>
+                        <span class="rating-value">4.5</span>
+                    </div>
+                    <p class="paper-abstract">
+                        Architecture of the Hadoop Distributed File System, designed to reliably store very large datasets across clusters of commodity servers.
+                    </p>
+                    <div class="paper-actions">
+                        <a href="https://storageconference.us/2010/Papers/MSST/Shvachko.pdf" class="paper-download">
+                            <i class="fas fa-download"></i> Download PDF
+                        </a>
+                    </div>
+                </article>
+                
+                <!-- Paper 3 -->
+                <article class="paper-card">
+                    <div class="paper-header">
+                        <h3 class="paper-title">Ceph: A Scalable Object Storage</h3>
+                        <div class="paper-meta">
+                            <span class="paper-year">2006</span>
+                            <span class="paper-difficulty advanced">Advanced</span>
+                        </div>
+                    </div>
+                    <div class="paper-rating">
+                        <i class="fas fa-star star filled"></i>
+                        <i class="fas fa-star star filled"></i>
+                        <i class="fas fa-star star filled"></i>
+                        <i class="fas fa-star star filled"></i>
+                        <i class="fas fa-star star filled"></i>
+                        <span class="rating-value">5.0</span>
+                    </div>
+                    <p class="paper-abstract">
+                        Ceph's design featuring decentralized object storage, dynamic metadata management, and reliable autonomic distributed file system.
+                    </p>
+                    <div class="paper-actions">
+                        <a href="https://ceph.com/assets/pdfs/weil-ceph-osdi06.pdf" class="paper-download">
+                            <i class="fas fa-download"></i> Download PDF
+                        </a>
+                    </div>
+                </article>
+                
+                <!-- Paper 4 -->
+                <article class="paper-card">
+                    <div class="paper-header">
+                        <h3 class="paper-title">Facebook's Tectonic Filesystem</h3>
+                        <div class="paper-meta">
+                            <span class="paper-year">2021</span>
+                            <span class="paper-difficulty advanced">Advanced</span>
+                        </div>
+                    </div>
+                    <div class="paper-rating">
+                        <i class="fas fa-star star filled"></i>
+                        <i class="fas fa-star star filled"></i>
+                        <i class="fas fa-star star filled"></i>
+                        <i class="fas fa-star star filled"></i>
+                        <i class="fas fa-star-half-alt star filled"></i>
+                        <span class="rating-value">4.5</span>
+                    </div>
+                    <p class="paper-abstract">
+                        Tectonic's design for exascale storage needs, supporting multitenancy and allowing specialization for diverse workloads.
+                    </p>
+                    <div class="paper-actions">
+                        <a href="https://www.usenix.org/system/files/fast21-pan.pdf" class="paper-download">
+                            <i class="fas fa-download"></i> Download PDF
+                        </a>
+                    </div>
+                </article>
+                
+                <!-- Paper 5 -->
+                <article class="paper-card">
+                    <div class="paper-header">
+                        <h3 class="paper-title">Lustre: Scalable Storage Architecture</h3>
+                        <div class="paper-meta">
+                            <span class="paper-year">2003</span>
+                            <span class="paper-difficulty intermediate">Intermediate</span>
+                        </div>
+                    </div>
+                    <div class="paper-rating">
+                        <i class="fas fa-star star filled"></i>
+                        <i class="fas fa-star star filled"></i>
+                        <i class="fas fa-star star filled"></i>
+                        <i class="fas fa-star star filled"></i>
+                        <i class="fas fa-star-half-alt star filled"></i>
+                        <span class="rating-value">4.5</span>
+                    </div>
+                    <p class="paper-abstract">
+                        Architecture of the Lustre file system designed for network-based, cluster-wide storage aggregation and scalable parallel I/O.
+                    </p>
+                    <div class="paper-actions">
+                        <a href="https://www.osti.gov/servlets/purl/15014274" class="paper-download">
+                            <i class="fas fa-download"></i> Download PDF
+                        </a>
+                    </div>
+                </article>
+            </div>
+        </section>
+        
+        <footer>
+            <p>&copy; 2025 Computer Science Resource Hub | Distributed File Systems Research Collection</p>
+        </footer>
+    </div>
+    
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Concept Map Configuration - Focused on DFS concepts
+            const nodes = [
+                { 
+                    id: 'core-node', 
+                    element: document.getElementById('core-node'),
+                    connections: ['architecture-node', 'scalability-node', 'consistency-node', 'performance-node'],
+                    color: '#3498db'
+                },
+                { 
+                    id: 'architecture-node', 
+                    element: document.getElementById('architecture-node'),
+                    connections: [],
+                    color: '#e74c3c'
+                },
+                { 
+                    id: 'scalability-node', 
+                    element: document.getElementById('scalability-node'),
+                    connections: [],
+                    color: '#2ecc71'
+                },
+                { 
+                    id: 'consistency-node', 
+                    element: document.getElementById('consistency-node'),
+                    connections: [],
+                    color: '#9b59b6'
+                },
+                { 
+                    id: 'performance-node', 
+                    element: document.getElementById('performance-node'),
+                    connections: [],
+                    color: '#f39c12'
+                }
+            ];
+            
+            // Initialize Canvas
+            const mapContainer = document.getElementById('conceptMap');
+            const canvas = document.createElement('canvas');
+            const ctx = canvas.getContext('2d');
+            mapContainer.prepend(canvas);
+            
+            function setupCanvas() {
+                const dpr = window.devicePixelRatio || 1;
+                const rect = mapContainer.getBoundingClientRect();
+                canvas.width = rect.width * dpr;
+                canvas.height = rect.height * dpr;
+                canvas.style.width = `${rect.width}px`;
+                canvas.style.height = `${rect.height}px`;
+                ctx.scale(dpr, dpr);
+                drawConnections();
+            }
+            
+            // Drawing Functions
+            function getNodeCenter(node) {
+                const rect = node.getBoundingClientRect();
+                const containerRect = mapContainer.getBoundingClientRect();
+                return {
+                    x: rect.left - containerRect.left + rect.width / 2,
+                    y: rect.top - containerRect.top + rect.height / 2
+                };
+            }
+            
+            function drawConnections() {
+                ctx.clearRect(0, 0, canvas.width, canvas.height);
+                
+                nodes.forEach(node => {
+                    const from = getNodeCenter(node.element);
+                    
+                    node.connections.forEach(connId => {
+                        const toNode = nodes.find(n => n.id === connId);
+                        if (toNode) {
+                            const to = getNodeCenter(toNode.element);
+                            drawConnection(from, to, node.color);
+                        }
+                    });
+                });
+            }
+            
+            function drawConnection(from, to, color) {
+                ctx.beginPath();
+                ctx.moveTo(from.x, from.y);
+                ctx.lineTo(to.x, to.y);
+                ctx.strokeStyle = color;
+                ctx.lineWidth = 2;
+                ctx.stroke();
+                
+                // Draw arrowhead
+                const angle = Math.atan2(to.y - from.y, to.x - from.x);
+                ctx.save();
+                ctx.translate(to.x, to.y);
+                ctx.rotate(angle);
+                
+                ctx.beginPath();
+                ctx.moveTo(0, 0);
+                ctx.lineTo(-8, -4);
+                ctx.lineTo(-8, 4);
+                ctx.closePath();
+                ctx.fillStyle = color;
+                ctx.fill();
+                
+                ctx.restore();
+            }
+            
+            // Node Interactions
+            nodes.forEach(node => {
+                node.element.addEventListener('click', function() {
+                    // Visual feedback
+                    this.style.boxShadow = `0 0 0 4px ${node.color}`;
+                    setTimeout(() => {
+                        this.style.boxShadow = '';
+                    }, 500);
+                });
+            });
+            
+            // Initial Setup
+            setupCanvas();
+            
+            // Responsive Handling
+            window.addEventListener('resize', setupCanvas);
+            
+            // Intersection Observer for performance
+            const observer = new IntersectionObserver((entries) => {
+                if (entries[0].isIntersecting) {
+                    drawConnections();
+                }
+            }, { threshold: 0.1 });
+            
+            observer.observe(mapContainer);
+        });
+    </script>
+</body>
+</html>

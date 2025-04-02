@@ -1,0 +1,431 @@
+<!DOCTYPE html>
+<!--
+This file is part of Computer Learning Resource Collection.
+
+Computer Learning Resource Collection is free software: you can redistribute it and/or modify
+it under the terms of the GNU General Public License as published by
+the Free Software Foundation, either version 3 of the License, or
+(at your option) any later version.
+
+Computer Learning Resource Collection is distributed in the hope that it will be useful,
+but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+GNU General Public License for more details.
+
+You should have received a copy of the GNU General Public License
+along with Computer Learning Resource Collection.  If not, see <https://www.gnu.org/licenses/>.
+
+Copyright (C) 2025 wangbin579
+-->
+
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Research Papers Hub</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        /* ===== AI THEME COLOR SCHEME ===== */
+        :root {
+            --primary: #3498db;       /* Core AI blue */
+            --theoretical: #2c3e50;    /* Theoretical dark blue */
+            --practical: #2ecc71;      /* Practical green */
+            --llms: #9b59b6;          /* LLMs purple */
+            --ethics: #f39c12;        /* Ethics orange */
+            --dark: #2c3e50;          /* Text color */
+            --light: #ecf0f1;         /* Card background */
+            --beginner: #2ecc71;
+            --intermediate: #f1c40f;
+            --advanced: #e74c3c;
+            --star-filled: #f39c12;
+            --star-empty: #bdc3c7;
+        }
+
+        /* ===== BASE STRUCTURE ===== */
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: var(--dark);
+            background-color: #f9f9f9;
+            margin: 0;
+            padding: 0;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 30px 20px;
+        }
+
+        .back-link {
+            display: inline-block;
+            margin-bottom: 20px;
+            color: var(--primary);
+            text-decoration: none;
+            font-weight: 500;
+        }
+
+        .back-link:hover {
+            text-decoration: underline;
+        }
+
+        header {
+            margin-bottom: 40px;
+            text-align: center;
+        }
+
+        h1 {
+            color: var(--primary);
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+        }
+
+        .subtitle {
+            font-size: 1.2rem;
+            color: var(--dark);
+            margin: 0;
+        }
+
+        /* ===== PAPER SECTIONS ===== */
+        .paper-section {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 25px;
+            margin-top: 40px;
+        }
+
+        .paper-category {
+            background: white;
+            border-radius: 8px;
+            padding: 20px;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.08);
+        }
+
+        /* Category headers */
+        .paper-category h2 {
+            margin-top: 0;
+            padding-bottom: 10px;
+            border-bottom: 2px solid;
+            display: flex;
+            align-items: center;
+        }
+
+        .paper-category h2 i {
+            margin-right: 10px;
+        }
+
+        .theoretical h2 {
+            color: var(--theoretical);
+            border-color: var(--theoretical);
+        }
+
+        .practical h2 {
+            color: var(--practical);
+            border-color: var(--practical);
+        }
+
+        /* Paper items */
+        .paper-item {
+            padding: 15px;
+            margin-bottom: 15px;
+            border-left: 4px solid;
+            background: var(--light);
+            transition: all 0.2s ease;
+        }
+
+        .theoretical .paper-item {
+            border-left-color: var(--theoretical);
+        }
+
+        .practical .paper-item {
+            border-left-color: var(--practical);
+        }
+
+        .paper-item:hover {
+            transform: translateX(5px);
+            box-shadow: 2px 2px 8px rgba(0,0,0,0.1);
+        }
+
+        .paper-title {
+            font-weight: 600;
+            margin-bottom: 5px;
+            font-size: 1.05rem;
+        }
+
+        .paper-meta {
+            display: flex;
+            justify-content: space-between;
+            font-size: 0.9rem;
+            color: var(--dark);
+            margin-bottom: 8px;
+        }
+
+        .paper-difficulty {
+            font-weight: 600;
+        }
+
+        .paper-difficulty.beginner {
+            color: var(--beginner);
+        }
+
+        .paper-difficulty.intermediate {
+            color: var(--intermediate);
+        }
+
+        .paper-difficulty.advanced {
+            color: var(--advanced);
+        }
+
+        .paper-rating {
+            display: flex;
+            margin: 8px 0;
+        }
+
+        .star {
+            color: var(--star-empty);
+            margin-right: 3px;
+        }
+
+        .star.filled {
+            color: var(--star-filled);
+        }
+
+        .paper-download {
+            display: inline-block;
+            padding: 5px 12px;
+            background: var(--primary);
+            color: white;
+            text-decoration: none;
+            border-radius: 4px;
+            font-size: 0.85rem;
+            transition: background 0.2s;
+        }
+
+        .paper-download:hover {
+            background: #2980b9;
+        }
+
+        .paper-abstract {
+            font-size: 0.9rem;
+            color: #555;
+            margin-top: 10px;
+            line-height: 1.5;
+        }
+
+        /* ===== RESPONSIVE DESIGN ===== */
+        @media (max-width: 900px) {
+            .paper-section {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <a href="../index.html" class="back-link"><i class="fas fa-arrow-left"></i> Back to Resources</a>
+        
+        <header>
+            <h1>AI Research Papers Hub</h1>
+            <p class="subtitle">From theoretical foundations to practical applications</p>
+        </header>
+        
+        <!-- ===== PAPER SECTIONS ===== -->
+        <div class="paper-section">
+            <!-- Theoretical Algorithms -->
+            <div class="paper-category theoretical">
+                <h2><i class="fas fa-landmark"></i> Theoretical Foundations</h2>
+                <div class="paper-list">
+                    <div class="paper-item">
+                        <div class="paper-title">Why general artificial intelligence will not be realized</div>
+                        <div class="paper-meta">
+                            <span>Larsen, 2020</span>
+                            <span class="paper-difficulty intermediate">Intermediate</span>
+                        </div>
+                        <div class="paper-rating">
+                            <i class="fas fa-star star filled"></i>
+                            <i class="fas fa-star star filled"></i>
+                            <i class="fas fa-star star filled"></i>
+                            <i class="fas fa-star star filled"></i>
+                            <i class="fas fa-star star filled"></i>
+                            <span style="margin-left: 5px; color: var(--star-filled);">5.0</span>
+                        </div>
+                        <div class="paper-abstract">
+                            A closer look reveals that although development of artificial intelligence for specific purposes (ANI) has been impressive, we have not come much closer to developing artificial general intelligence (AGI).
+                        </div>
+                        <a href="https://www.researchgate.net/journal/Humanities-and-Social-Sciences-Communications-2662-9992/publication/342235141_Why_general_artificial_intelligence_will_not_be_realized/links/5fc49674a6fdcc6cc684c6b5/Why-general-artificial-intelligence-will-not-be-realized.pdf?_tp=eyJjb250ZXh0Ijp7ImZpcnN0UGFnZSI6InB1YmxpY2F0aW9uIiwicGFnZSI6InB1YmxpY2F0aW9uIn19" class="paper-download">Download PDF</a>
+                    </div>
+                    
+                    <div class="paper-item">
+                        <div class="paper-title">Why Machines Will Never Rule the World</div>
+                        <div class="paper-meta">
+                            <span>Landgrebe and Smith, 2022</span>
+                            <span class="paper-difficulty advanced">Advanced</span>
+                        </div>
+                        <div class="paper-rating">
+                            <i class="fas fa-star star filled"></i>
+                            <i class="fas fa-star star filled"></i>
+                            <i class="fas fa-star star filled"></i>
+                            <i class="fas fa-star star filled"></i>
+                            <i class="fas fa-star star filled"></i>
+                            <span style="margin-left: 5px; color: var(--star-filled);">5.0</span>
+                        </div>
+                        <div class="paper-abstract">
+                            The book's core argument is that an artificial intelligence that could equal or exceed human intelligence¡ªsometimes called artificial general intelligence (AGI)¡ªis for mathematical reasons impossible.
+                        </div>
+                        <a href="https://philarchive.org/archive/LANWMW-2" class="paper-download">Download PDF</a>
+                    </div>
+                    
+                    <div class="paper-item">
+                        <div class="paper-title">Sparks of Artificial General Intelligence: Early experiments with GPT-4</div>
+                        <div class="paper-meta">
+                            <span>Microsoft Research, 2023</span>
+                            <span class="paper-difficulty advanced">Advanced</span>
+                        </div>
+                        <div class="paper-rating">
+                            <i class="fas fa-star star filled"></i>
+                            <i class="fas fa-star star filled"></i>
+                            <i class="fas fa-star star filled"></i>
+                            <i class="fas fa-star star filled"></i>
+                            <i class="fas fa-star star filled"></i>
+                            <span style="margin-left: 5px; color: var(--star-filled);">5.0</span>
+                        </div>
+                        <div class="paper-abstract">
+                            Artificial intelligence (AI) researchers have been developing and refining large language models (LLMs) that exhibit remarkable capabilities across a variety of domains and tasks, challenging our understanding of learning and cognition.
+                        </div>
+                        <a href="https://arxiv.org/pdf/2303.12712" class="paper-download">Download PDF</a>
+                    </div>
+                    
+                    <div class="paper-item">
+                        <div class="paper-title">DeepSeek-R1: Incentivizing Reasoning Capability in LLMs via Reinforcement Learning</div>
+                        <div class="paper-meta">
+                            <span>DeepSeek, 2025</span>
+                            <span class="paper-difficulty advanced">Advanced</span>
+                        </div>
+                        <div class="paper-rating">
+                            <i class="fas fa-star star filled"></i>
+                            <i class="fas fa-star star filled"></i>
+                            <i class="fas fa-star star filled"></i>
+                            <i class="fas fa-star star filled"></i>
+                            <i class="fas fa-star star filled"></i>
+                            <span style="margin-left: 5px; color: var(--star-filled);">5.0</span>
+                        </div>
+                        <div class="paper-abstract">
+                            DeepSeekR1 achieves performance comparable to OpenAI-o1-1217 on reasoning tasks through innovative reinforcement learning techniques.
+                        </div>
+                        <a href="https://arxiv.org/pdf/2501.12948" class="paper-download">Download PDF</a>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Practical Applications -->
+            <div class="paper-category practical">
+                <h2><i class="fas fa-microchip"></i> Practical Applications</h2>
+                <div class="paper-list">
+                    <div class="paper-item">
+                        <div class="paper-title">The 70% problem: Hard truths about AI-assisted coding</div>
+                        <div class="paper-meta">
+                            <span>Addy Osmani et al., 2024</span>
+                            <span class="paper-difficulty beginner">Beginner</span>
+                        </div>
+                        <div class="paper-rating">
+                            <i class="fas fa-star star filled"></i>
+                            <i class="fas fa-star star filled"></i>
+                            <i class="fas fa-star star filled"></i>
+                            <i class="fas fa-star star filled"></i>
+                            <i class="fas fa-star star filled"></i>
+                            <span style="margin-left: 5px; color: var(--star-filled);">5.0</span>
+                        </div>
+                        <div class="paper-abstract">
+                            A field guide and why we need to rethink our expectations about AI-assisted coding productivity gains.
+                        </div>
+                        <a href="https://addyo.substack.com/p/the-70-problem-hard-truths-about" class="paper-download">View Article</a>
+                    </div>
+                    
+                    <div class="paper-item">
+                        <div class="paper-title">AI Engineering: Building Applications with Foundation Models</div>
+                        <div class="paper-meta">
+                            <span>Various Authors, 2025</span>
+                            <span class="paper-difficulty beginner">Beginner</span>
+                        </div>
+                        <div class="paper-rating">
+                            <i class="fas fa-star star filled"></i>
+                            <i class="fas fa-star star filled"></i>
+                            <i class="fas fa-star star filled"></i>
+                            <i class="fas fa-star star filled"></i>
+                            <i class="fas fa-star star filled"></i>
+                            <span style="margin-left: 5px; color: var(--star-filled);">5.0</span>
+                        </div>
+                        <div class="paper-abstract">
+                            This book offers a comprehensive, well-structured guide to the essential aspects of building generative AI systems.
+                        </div>
+                        <a href="https://z-lib.blog/dl/88886268/88553a" class="paper-download">Download PDF</a>
+                    </div>
+                    
+                    <div class="paper-item">
+                        <div class="paper-title">A Comparative Review of AI Techniques for Automated Code Generation</div>
+                        <div class="paper-meta">
+                            <span>Various Authors, 2024</span>
+                            <span class="paper-difficulty intermediate">Intermediate</span>
+                        </div>
+                        <div class="paper-rating">
+                            <i class="fas fa-star star filled"></i>
+                            <i class="fas fa-star star filled"></i>
+                            <i class="fas fa-star star filled"></i>
+                            <i class="fas fa-star star filled"></i>
+                            <i class="fas fa-star star filled"></i>
+                            <span style="margin-left: 5px; color: var(--star-filled);">5.0</span>
+                        </div>
+                        <div class="paper-abstract">
+                            Artificial Intelligence (AI), as one of the most important fields of computer science, plays a significant role in the software development life cycle process, especially in the implementation phase.
+                        </div>
+                        <a href="https://www.temjournal.com/content/131/TEMJournalFebruary2024_726_739.pdf" class="paper-download">Download PDF</a>
+                    </div>
+                    
+                    <div class="paper-item">
+                        <div class="paper-title">Promptly: Using Prompt Problems to Teach Learners How to Effectively Utilize AI Code Generators</div>
+                        <div class="paper-meta">
+                            <span>Denny et al., 2023</span>
+                            <span class="paper-difficulty intermediate">Intermediate</span>
+                        </div>
+                        <div class="paper-rating">
+                            <i class="fas fa-star star filled"></i>
+                            <i class="fas fa-star star filled"></i>
+                            <i class="fas fa-star star filled"></i>
+                            <i class="fas fa-star star filled"></i>
+                            <i class="fas fa-star star filled"></i>
+                            <span style="margin-left: 5px; color: var(--star-filled);">5.0</span>
+                        </div>
+                        <div class="paper-abstract">
+                            With their remarkable ability to generate code, large language models (LLMs) are a transformative technology for computing education practice.
+                        </div>
+                        <a href="https://arxiv.org/pdf/2307.16364" class="paper-download">Download PDF</a>
+                    </div>
+                    
+                    <div class="paper-item">
+                        <div class="paper-title">Programming with AI: Evaluating ChatGPT, Gemini, AlphaCode, and GitHub Copilot for Programmers</div>
+                        <div class="paper-meta">
+                            <span>Various Authors, 2024</span>
+                            <span class="paper-difficulty intermediate">Intermediate</span>
+                        </div>
+                        <div class="paper-rating">
+                            <i class="fas fa-star star filled"></i>
+                            <i class="fas fa-star star filled"></i>
+                            <i class="fas fa-star star filled"></i>
+                            <i class="fas fa-star star filled"></i>
+                            <i class="fas fa-star star filled"></i>
+                            <span style="margin-left: 5px; color: var(--star-filled);">5.0</span>
+                        </div>
+                        <div class="paper-abstract">
+                            Our everyday lives now heavily rely on artificial intelligence (AI) powered large language models (LLMs). Like regular users, programmers are also benefiting from the newest large language models.
+                        </div>
+                        <a href="https://arxiv.org/pdf/2411.09224" class="paper-download">Download PDF</a>
+                    </div>
+                    
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+</body>
+</html>
