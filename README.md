@@ -22,11 +22,11 @@ Tech Explorer Hub is a curated collection of high-quality computer science resou
 
 ## Learning Resources
 
-????Please visit the [learning resources](https://enhancedformysql.github.io/tech-explorer-hub/reading/index.html) link.
+Please visit the [learning resources](https://enhancedformysql.github.io/tech-explorer-hub/reading/index.html) link.
 
 ## Practice Challenges
 
-??Please visit the [practice resources](https://enhancedformysql.github.io/tech-explorer-hub/practice/index.html) link.
+Please visit the [practice resources](https://enhancedformysql.github.io/tech-explorer-hub/practice/index.html) link.
 
 ## How to Contribute
 
