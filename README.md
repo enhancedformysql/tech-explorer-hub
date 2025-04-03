@@ -9,16 +9,13 @@
 
 Tech Explorer Hub is a curated collection of high-quality computer science resources designed specifically for developers who want to:
 
-- **Learn** cutting-edge concepts from research papers
+- Learn how authors think from research papers.
 
-- **Apply** knowledge in real-world systems
+- Unlike academic databases, we focus on papers and books that have real-world applications.
 
-- **Master** skills through hands-on challenges
-+ Unlike academic repositories, we focus on practical implementation
+- Materials are carefully selected to identify the best resources for developers.
 
-+ Materials are carefully selected and annotated for developers
-
-+ Challenges are modeled after real engineering problems
+- Challenge problems are based on real engineering scenarios.
 
 ## Learning Resources
 
