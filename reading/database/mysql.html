@@ -22,12 +22,12 @@ Copyright (C) 2025 wangbin579
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Storage Engines Research Papers</title>
+    <title>MySQL Technical Materials</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
         :root {
-            --primary: #3498db;
-            --secondary: #e74c3c;
+            --primary: #00758f;
+            --secondary: #f29111;
             --dark: #2c3e50;
             --light: #ecf0f1;
             --theory: #9b59b6;
@@ -200,7 +200,7 @@ Copyright (C) 2025 wangbin579
         }
         
         .paper-download:hover {
-            background: #2980b9;
+            background: #005f73;
         }
         
         .paper-abstract {
@@ -222,127 +222,18 @@ Copyright (C) 2025 wangbin579
         <a href="index.html" class="back-link"><i class="fas fa-arrow-left"></i> Back to Resources</a>
         
         <header>
-            <h1>Storage Engines Research Papers</h1>
-            <p class="subtitle">Theoretical foundations and practical implementations</p>
+            <h1>MySQL Technical Materials</h1>
+            <p class="subtitle">In-depth analysis of MySQL</p>
         </header>
         
         <div class="paper-section">
             <div class="paper-category theory">
                 <h2><i class="fas fa-atom"></i> Theoretical Foundations</h2>
                 <div class="paper-list">
-                    <!-- Theoretical Papers -->
-                    
-                    <div class="paper-item">
-                        <div class="paper-title">Scalable and Robust Snapshot Isolation for High-Performance Storage Engines</div>
-                        <div class="paper-meta">
-                            <span>Adnan Alhomssi and Viktor Leis, 2023</span>
-                            <span class="paper-difficulty intermediate">Intermediate</span>
-                        </div>
-                        <div class="paper-rating">
-                            <i class="fas fa-star star filled"></i>
-                            <i class="fas fa-star star filled"></i>
-                            <i class="fas fa-star star filled"></i>
-                            <i class="fas fa-star star filled"></i>
-                            <i class="far fa-star star"></i>
-                            <span style="margin-left: 5px; color: var(--star-filled);">4.0</span>
-                        </div>
-                        <div class="paper-abstract">
-                            A study on scalable and robust snapshot isolation techniques for high-performance storage engines.
-                        </div>
-                        <a href="https://www.vldb.org/pvldb/vol16/p1426-alhomssi.pdf" class="paper-download">Download PDF</a>
-                    </div>
-                    
-                    <div class="paper-item">
-                        <div class="paper-title">ARIES: A transaction recovery method supporting fine-granularity locking and partial rollbacks using write-ahead logging</div>
-                        <div class="paper-meta">
-                            <span>C. Mohan et al., 1992</span>
-                            <span class="paper-difficulty intermediate">Intermediate</span>
-                        </div>
-                        <div class="paper-rating">
-                            <i class="fas fa-star star filled"></i>
-                            <i class="fas fa-star star filled"></i>
-                            <i class="fas fa-star star filled"></i>
-                            <i class="fas fa-star star filled"></i>
-                            <i class="fas fa-star star filled"></i>
-                            <span style="margin-left: 5px; color: var(--star-filled);">5.0</span>
-                        </div>
-                        <div class="paper-abstract">
-                            A seminal paper on transaction recovery using write-ahead logging.
-                        </div>
-                        <a href="https://cs.stanford.edu/people/chrismre/cs345/rl/aries.pdf" class="paper-download">Download PDF</a>
-                    </div>
-                    
-                    <div class="paper-item">
-                        <div class="paper-title">Staring into the Abyss: An Evaluation of Concurrency Control with One Thousand Cores</div>
-                        <div class="paper-meta">
-                            <span>Xiangyao Yu et al., 2014</span>
-                            <span class="paper-difficulty intermediate">Intermediate</span>
-                        </div>
-                        <div class="paper-rating">
-                            <i class="fas fa-star star filled"></i>
-                            <i class="fas fa-star star filled"></i>
-                            <i class="fas fa-star star filled"></i>
-                            <i class="fas fa-star star filled"></i>
-                            <i class="fas fa-star star filled"></i>
-                            <span style="margin-left: 5px; color: var(--star-filled);">5.0</span>
-                        </div>
-                        <div class="paper-abstract">
-                            In particular, as the number of cores increases, the problem of concurrency control becomes extremely challenging. With hundreds of threads running in parallel, the complexity of coordinating competing accesses to data will likely diminish the gains from increased core counts.
-                        </div>
-                        <a href="https://www.vldb.org/pvldb/vol8/p209-yu.pdf" class="paper-download">Download PDF</a>
-                    </div>
-                    
-                    <div class="paper-item">
-                        <div class="paper-title">Avoiding Scalability Collapse by Restricting Concurrency</div>
-                        <div class="paper-meta">
-                            <span>Dave Dice et al., 2019</span>
-                            <span class="paper-difficulty intermediate">Intermediate</span>
-                        </div>
-                        <div class="paper-rating">
-                            <i class="fas fa-star star filled"></i>
-                            <i class="fas fa-star star filled"></i>
-                            <i class="fas fa-star star filled"></i>
-                            <i class="fas fa-star star filled"></i>
-                            <i class="fas fa-star star filled"></i>
-                            <span style="margin-left: 5px; color: var(--star-filled);">5.0</span>
-                        </div>
-                        <div class="paper-abstract">
-                            Saturated locks often degrade the performance of a multithreaded application, leading to a so-called scalability collapse problem.
-                        </div>
-                        <a href="https://arxiv.org/pdf/1905.10818/" class="paper-download">Download PDF</a>
-                    </div>
-                    
-                    <div class="paper-item">
-                        <div class="paper-title">Rethink Data Anomalies In Databases</div>
-                        <div class="paper-meta">
-                            <span>Haixiang Li et al., 2021</span>
-                            <span class="paper-difficulty advanced">Advanced</span>
-                        </div>
-                        <div class="paper-rating">
-                            <i class="fas fa-star star filled"></i>
-                            <i class="fas fa-star star filled"></i>
-                            <i class="fas fa-star star filled"></i>
-                            <i class="fas fa-star star filled"></i>
-                            <i class="fas fa-star star filled"></i>
-                            <span style="margin-left: 5px; color: var(--star-filled);">5.0</span>
-                        </div>
-                        <div class="paper-abstract">
-                            A general framework called Coo with the capability to formally define all data anomalies and quantitatively describe them.
-                        </div>
-                        <a href="https://www.vldb.org/pvldb/vol8/p185-bailis.pdf" class="paper-download">Download PDF</a>
-                    </div>
-
-                </div>
-            </div>
-            
-            <div class="paper-category practice">
-                <h2><i class="fas fa-laptop-code"></i> Practical Implementations</h2>
-                <div class="paper-list">
-
                     <div class="paper-item">
                         <div class="paper-title">Deep Dive: InnoDB Transactions and Write Paths</div>
                         <div class="paper-meta">
-                            <span>2018</span>
+                            <span>MariaDB Corporation, 2018</span>
                             <span class="paper-difficulty beginner">Beginner</span>
                         </div>
                         <div class="paper-rating">
@@ -354,17 +245,103 @@ Copyright (C) 2025 wangbin579
                             <span style="margin-left: 5px; color: var(--star-filled);">5.0</span>
                         </div>
                         <div class="paper-abstract">
-                            InnoDB transactions and write paths From the client connection to physical storage.
+                            Comprehensive analysis of InnoDB's transaction processing and write paths from client connection to physical storage.
                         </div>
                         <a href="https://mariadb.org/wp-content/uploads/2018/02/Deep-Dive_-InnoDB-Transactions-and-Write-Paths.pdf" class="paper-download">Download PDF</a>
                     </div>
                     
+                    <div class="paper-item">
+										    <div class="paper-title">Mencius: Building Efficient Replicated State Machines for WANs</div>
+										    <div class="paper-meta">
+										        <span>Yanhua Mao, 2008</span>
+										        <span class="paper-difficulty intermediate">Intermediate</span>
+										    </div>
+										    <div class="paper-rating">
+										        <i class="fas fa-star star filled"></i>
+										        <i class="fas fa-star star filled"></i>
+										        <i class="fas fa-star star filled"></i>
+										        <i class="fas fa-star star filled"></i>
+										        <i class="far fa-star star"></i>
+										        <span style="margin-left: 5px; color: var(--star-filled);">4.0</span>
+										    </div>
+										    <div class="paper-abstract">
+										    	 We present a protocol for general state machine replication - a method that provides strong consistency - that has high performance in a wide-area network. In particular, our protocol Mencius has high throughput under high client load and low latency under low client load even under changing wide-area network environment and client load.
+										    </div>
+										    <a href="https://www.usenix.org/legacy/event/osdi08/tech/full_papers/mao/mao.pdf" class="paper-download">Download PDF</a>
+										</div>
+										
+										<div class="paper-item">
+                        <div class="paper-title">KuaFu: Closing the parallelism gap in database replication</div>
+                        <div class="paper-meta">
+                            <span>C. Hong et al., 2013</span>
+                            <span class="paper-difficulty intermediate">Intermediate</span>
+                        </div>
+                        <div class="paper-rating">
+                            <i class="fas fa-star star filled"></i>
+                            <i class="fas fa-star star filled"></i>
+                            <i class="fas fa-star star filled"></i>
+                            <i class="fas fa-star star filled"></i>
+                            <i class="far fa-star star"></i>
+                            <span style="margin-left: 5px; color: var(--star-filled);">4.0</span>
+                        </div>
+                        <div class="paper-abstract">
+                            A practical implementation for improving parallelism in database replication systems.
+                        </div>
+                        <a href="https://www.cs.cmu.edu/~./dongz/papers/KuaFu.pdf" class="paper-download">Download PDF</a>
+                    </div>
+                    
+                    
+                </div>
+            </div>
+            
+            <div class="paper-category practice">
+                <h2><i class="fas fa-laptop-code"></i> Practical Systems</h2>
+                <div class="paper-list">
 
+                    <div class="paper-item">
+                        <div class="paper-title">Building and deploying MySQL Raft at Meta</div>
+                        <div class="paper-meta">
+                            <span>Anirban Rahut et al., 2023</span>
+                            <span class="paper-difficulty beginner">Beginner</span>
+                        </div>
+                        <div class="paper-rating">
+                            <i class="fas fa-star star filled"></i>
+                            <i class="fas fa-star star filled"></i>
+                            <i class="fas fa-star star filled"></i>
+                            <i class="fas fa-star star filled"></i>
+                            <i class="fas fa-star star filled"></i>
+                            <span style="margin-left: 5px; color: var(--star-filled);">5.0</span>
+                        </div>
+                        <div class="paper-abstract">
+                            A case study on deploying MySQL Raft at Meta for improved distributed consensus.
+                        </div>
+                        <a href="https://engineering.fb.com/2023/05/16/data-infrastructure/mysql-raft-meta/" class="paper-download">View Article</a>
+                    </div>
                     
                     <div class="paper-item">
-                        <div class="paper-title">Scalability of write-ahead logging on multicore and multisocket hardware</div>
+                        <div class="paper-title">Integrating the Orca Optimizer into MySQL</div>
                         <div class="paper-meta">
-                            <span>Johnson et al., 2012</span>
+                            <span>Marathe et al., 2022</span>
+                            <span class="paper-difficulty intermediate">Intermediate</span>
+                        </div>
+                        <div class="paper-rating">
+                            <i class="fas fa-star star filled"></i>
+                            <i class="fas fa-star star filled"></i>
+                            <i class="fas fa-star star filled"></i>
+                            <i class="fas fa-star star filled"></i>
+                            <i class="fas fa-star-half-alt star filled"></i>
+                            <span style="margin-left: 5px; color: var(--star-filled);">4.5</span>
+                        </div>
+                        <div class="paper-abstract">
+                            Case study of integrating a modern cost-based optimizer into a production RDBMS, discussing challenges and performance results.
+                        </div>
+                        <a href="https://openproceedings.org/2022/conf/edbt/paper-87.pdf" class="paper-download">Download PDF</a>
+                    </div>
+                    
+                    <div class="paper-item">
+                        <div class="paper-title">FlexiRaft: Flexible Quorums with Raft</div>
+                        <div class="paper-meta">
+                            <span>Ritwik Yadav and Anirban Rahut, 2023</span>
                             <span class="paper-difficulty intermediate">Intermediate</span>
                         </div>
                         <div class="paper-rating">
@@ -376,32 +353,10 @@ Copyright (C) 2025 wangbin579
                             <span style="margin-left: 5px; color: var(--star-filled);">5.0</span>
                         </div>
                         <div class="paper-abstract">
-                            A study on the scalability of write-ahead logging in modern hardware environments.
+                            A study on flexible quorum systems for Raft-based distributed consensus.
                         </div>
-                        <a href="https://infoscience.epfl.ch/server/api/core/bitstreams/3d7b627c-719f-462a-8a04-1c71fa7d2dfa/content" class="paper-download">Download PDF</a>
-                    </div>
-                    
-
-                    
-                    <div class="paper-item">
-                        <div class="paper-title">LavaStore: ByteDance's Purpose-built, High-performance, Cost-effective Local Storage Engine for Cloud Services</div>
-                        <div class="paper-meta">
-                            <span>Hao Wang et al., 2024</span>
-                            <span class="paper-difficulty advanced">Advanced</span>
-                        </div>
-                        <div class="paper-rating">
-                            <i class="fas fa-star star filled"></i>
-                            <i class="fas fa-star star filled"></i>
-                            <i class="fas fa-star star filled"></i>
-                            <i class="fas fa-star star filled"></i>
-                            <i class="fas fa-star star filled"></i>
-                            <span style="margin-left: 5px; color: var(--star-filled);">5.0</span>
-                        </div>
-                        <div class="paper-abstract">
-                            Presents the design and implementation of LavaStore, a high-performance cost-effective local storage engine purpose-built for ByteDance's needs.
-                        </div>
-                        <a href="https://www.vldb.org/pvldb/vol17/p3799-jiao.pdf" class="paper-download">Download PDF</a>
-                    </div>
+                        <a href="https://www.cidrdb.org/cidr2023/papers/p83-yadav.pdf" class="paper-download">Download PDF</a>
+                    </div>   
                     
                     
                     <div class="paper-item">
@@ -423,7 +378,8 @@ Copyright (C) 2025 wangbin579
                         </div>
                         <a href="https://www.vldb.org/pvldb/vol11/p648-tian.pdf" class="paper-download">Download PDF</a>
                     </div>
-                     
+                    
+                    
                 </div>
             </div>
         </div>
