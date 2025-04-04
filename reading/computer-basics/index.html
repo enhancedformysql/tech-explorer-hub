@@ -22,23 +22,23 @@ Copyright (C) 2025 wangbin579
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Math & CS Research Hub</title>
+    <title>Computer Science Fundamentals Hub</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
-        /* ===== MATH & CS COLOR SCHEME ===== */
+        /* ===== CS FUNDAMENTALS COLOR SCHEME ===== */
         :root {
-            --primary: #3498db;       /* Changed from red to blue */
-            --theoretical: green;    /* Theoretical blue */
-            --practical: #2ecc71;      /* Practical green */
-            --algebra: #9b59b6;       /* Algebra purple */
-            --analysis: #f39c12;      /* Analysis orange */
-            --discrete: #1abc9c;      /* Discrete teal */
-            --applied: #34495e;       /* Applied dark blue */
-            --dark: #2c3e50;          /* Text color */
-            --light: #ecf0f1;         /* Card background */
+            --primary: #8e44ad;       /* Purple for Computer Basics */
+            --theoretical: #3498db;   /* Theoretical blue */
+            --practical: #2ecc71;    /* Practical green */
+            --systems: #e67e22;      /* Systems orange */
+            --languages: #9b59b6;    /* Languages purple */
+            --networking: #1abc9c;    /* Networking teal */
+            --database: #34495e;      /* Database dark blue */
+            --dark: #2c3e50;         /* Text color */
+            --light: #ecf0f1;        /* Card background */
             --beginner: #2ecc71;
             --intermediate: #f1c40f;
-            --advanced: #3498db;      /* Changed from red to blue */
+            --advanced: #e74c3c;
             --star-filled: #f39c12;
             --star-empty: #bdc3c7;
         }
@@ -88,15 +88,15 @@ Copyright (C) 2025 wangbin579
             margin: 0;
         }
 
-         /* ===== PAPER SECTIONS ===== */
-        .paper-section {
+        /* ===== BOOK SECTIONS ===== */
+        .book-section {
             display: grid;
             grid-template-columns: 1fr 1fr;
             gap: 25px;
             margin-top: 40px;
         }
 
-        .paper-category {
+        .book-category {
             background: white;
             border-radius: 8px;
             padding: 20px;
@@ -104,7 +104,7 @@ Copyright (C) 2025 wangbin579
         }
 
         /* Category headers */
-        .paper-category h2 {
+        .book-category h2 {
             margin-top: 0;
             padding-bottom: 10px;
             border-bottom: 2px solid;
@@ -112,7 +112,7 @@ Copyright (C) 2025 wangbin579
             align-items: center;
         }
 
-        .paper-category h2 i {
+        .book-category h2 i {
             margin-right: 10px;
         }
 
@@ -126,8 +126,8 @@ Copyright (C) 2025 wangbin579
             border-color: var(--practical);
         }
 
-        /* Paper items */
-        .paper-item {
+        /* Book items */
+        .book-item {
             padding: 15px;
             margin-bottom: 15px;
             border-left: 4px solid;
@@ -135,26 +135,26 @@ Copyright (C) 2025 wangbin579
             transition: all 0.2s ease;
         }
 
-        .theoretical .paper-item {
+        .theoretical .book-item {
             border-left-color: var(--theoretical);
         }
 
-        .practical .paper-item {
+        .practical .book-item {
             border-left-color: var(--practical);
         }
 
-        .paper-item:hover {
+        .book-item:hover {
             transform: translateX(5px);
             box-shadow: 2px 2px 8px rgba(0,0,0,0.1);
         }
 
-        .paper-title {
+        .book-title {
             font-weight: 600;
             margin-bottom: 5px;
             font-size: 1.05rem;
         }
 
-        .paper-meta {
+        .book-meta {
             display: flex;
             justify-content: space-between;
             font-size: 0.9rem;
@@ -162,23 +162,23 @@ Copyright (C) 2025 wangbin579
             margin-bottom: 8px;
         }
 
-        .paper-difficulty {
+        .book-difficulty {
             font-weight: 600;
         }
 
-        .paper-difficulty.beginner {
+        .book-difficulty.beginner {
             color: var(--beginner);
         }
 
-        .paper-difficulty.intermediate {
+        .book-difficulty.intermediate {
             color: var(--intermediate);
         }
 
-        .paper-difficulty.advanced {
+        .book-difficulty.advanced {
             color: var(--advanced);
         }
 
-        .paper-rating {
+        .book-rating {
             display: flex;
             margin: 8px 0;
         }
@@ -192,10 +192,10 @@ Copyright (C) 2025 wangbin579
             color: var(--star-filled);
         }
 
-        .paper-download {
+        .book-download {
             display: inline-block;
             padding: 5px 12px;
-            background: var(--primary);  /* Now uses the blue color */
+            background: var(--primary);
             color: white;
             text-decoration: none;
             border-radius: 4px;
@@ -203,11 +203,11 @@ Copyright (C) 2025 wangbin579
             transition: background 0.2s;
         }
 
-        .paper-download:hover {
-            background: #2980b9;  /* Darker blue for hover state */
+        .book-download:hover {
+            background: #732d91;  /* Darker purple for hover state */
         }
 
-        .paper-abstract {
+        .book-description {
             font-size: 0.9rem;
             color: #555;
             margin-top: 10px;
@@ -216,7 +216,7 @@ Copyright (C) 2025 wangbin579
 
         /* ===== RESPONSIVE DESIGN ===== */
         @media (max-width: 900px) {
-            .paper-section {
+            .book-section {
                 grid-template-columns: 1fr;
             }  
         }
@@ -227,23 +227,24 @@ Copyright (C) 2025 wangbin579
         <a href="../index.html" class="back-link"><i class="fas fa-arrow-left"></i> Back to Resources</a>
         
         <header>
-            <h1>Mathematics & Computer Science Research Hub</h1>
-            <p class="subtitle">From theoretical foundations to practical applications</p>
+            <h1>Computer Science Basics</h1>
+            <p class="subtitle">Essential resources from theory to practice</p>
         </header>
         
-        <!-- ===== PAPER SECTIONS ===== -->
-        <div class="paper-section">
+        <!-- ===== BOOK SECTIONS ===== -->
+        <div class="book-section">
             <!-- Theoretical Foundations -->
-            <div class="paper-category theoretical">
-                <h2><i class="fas fa-landmark"></i> Theoretical Resources</h2>
-                <div class="paper-list">
-                    <div class="paper-item">
-                        <div class="paper-title">Computational Complexity: A Modern Approach</div>
-                        <div class="paper-meta">
-                            <span>Arora & Barak, 2007</span>
-                            <span class="paper-difficulty advanced">Advanced</span>
+            <div class="book-category theoretical">
+                <h2><i class="fas fa-brain"></i> Theoretical Resources</h2>
+                <div class="book-list">
+                    <!-- Algorithms -->
+                    <div class="book-item">
+                        <div class="book-title">Introduction to Algorithms 2nd Edition</div>
+                        <div class="book-meta">
+                            <span>Cormen et al., 2001</span>
+                            <span class="book-difficulty intermediate">Intermediate</span>
                         </div>
-                        <div class="paper-rating">
+                        <div class="book-rating">
                             <i class="fas fa-star star filled"></i>
                             <i class="fas fa-star star filled"></i>
                             <i class="fas fa-star star filled"></i>
@@ -251,19 +252,19 @@ Copyright (C) 2025 wangbin579
                             <i class="fas fa-star star filled"></i>
                             <span style="margin-left: 5px; color: var(--star-filled);">5.0</span>
                         </div>
-                        <div class="paper-abstract">
-                            A comprehensive introduction to computational complexity theory, covering P vs NP, circuit complexity, proof complexity, and more.
+                        <div class="book-description">
+                            The definitive guide to algorithms, covering a wide range of topics with mathematical rigor.
                         </div>
-                        <a href="https://theory.cs.princeton.edu/complexity/book.pdf" class="paper-download">Download PDF</a>
+                        <a href="http://estigia.fi-b.unam.mx/maestria/cormen.pdf" class="book-download">View Book</a>
                     </div>
-                    
-                    <div class="paper-item">
-                        <div class="paper-title">Queueing Theory in Action</div>
-                        <div class="paper-meta">
-                            <span>Mor Harchol-Balter, 2013</span>
-                            <span class="paper-difficulty advanced">Advanced</span>
+
+    								<div class="book-item">
+                        <div class="book-title">Videos for Introduction to Algorithms, 2nd Edition</div>
+                        <div class="book-meta">
+                            <span>Cormen et al., 2005</span>
+                            <span class="book-difficulty intermediate">Intermediate</span>
                         </div>
-                        <div class="paper-rating">
+                        <div class="book-rating">
                             <i class="fas fa-star star filled"></i>
                             <i class="fas fa-star star filled"></i>
                             <i class="fas fa-star star filled"></i>
@@ -271,38 +272,56 @@ Copyright (C) 2025 wangbin579
                             <i class="fas fa-star star filled"></i>
                             <span style="margin-left: 5px; color: var(--star-filled);">5.0</span>
                         </div>
-                        <div class="paper-abstract">
-                        	  Fun and readable, the book is highly approachable, even for undergraduates, while still being thoroughly rigorous and also covering a much wider span of topics than many queueing books.
+                        <div class="book-description">
+                            The definitive guide to algorithms, covering a wide range of topics with mathematical rigor.
                         </div>
-                        <a href="https://z-lib.blog/dl/2462041/c390db" class="paper-download">Download PDF</a>
+                        <a href="https://ocw.mit.edu/courses/6-046j-introduction-to-algorithms-sma-5503-fall-2005/video_galleries/video-lectures/" class="book-download">watch these videos</a>
+                    </div>
+
+                    <div class="book-item">
+                        <div class="book-title">A TCP/IP Tutorial</div>
+                        <div class="book-meta">
+                            <span>RFC, 1991</span>
+                            <span class="book-difficulty beginner">Beginner</span>
+                        </div>
+                        <div class="book-rating">
+                            <i class="fas fa-star star filled"></i>
+                            <i class="fas fa-star star filled"></i>
+                            <i class="fas fa-star star filled"></i>
+                            <i class="fas fa-star star filled"></i>
+                            <i class="fas fa-star star filled"></i>
+                            <span style="margin-left: 5px; color: var(--star-filled);">5.0</span>
+                        </div>
+                        <div class="book-description">
+                            The best and easiest introductory material for the TCP/IP protocol.
+                        </div>
+                        <a href="https://www.rfc-editor.org/rfc/pdfrfc/rfc1180.txt.pdf" class="book-download">View Book</a>
                     </div>
                 </div>
-                
-                
             </div>
             
             <!-- Practical Applications -->
-            <div class="paper-category practical">
+            <div class="book-category practical">
                 <h2><i class="fas fa-laptop-code"></i> Practical Resources</h2>
-                <div class="paper-list">
-                    <div class="paper-item">
-                        <div class="paper-title">The Art and Craft of Problem Solving</div>
-                        <div class="paper-meta">
-                            <span>Paul Zeitz, 1999</span>
-                            <span class="paper-difficulty beginner">Beginner</span>
+                <div class="book-list">
+                    <div class="book-item">
+                        <div class="book-title">Programming from the Ground Up</div>
+                        <div class="book-meta">
+                            <span>Jonathan Bartlett, 2003</span>
+                            <span class="book-difficulty beginner">Beginner</span>
                         </div>
-                        <div class="paper-rating">
+                        <div class="book-rating">
                             <i class="fas fa-star star filled"></i>
                             <i class="fas fa-star star filled"></i>
                             <i class="fas fa-star star filled"></i>
                             <i class="fas fa-star star filled"></i>
                             <i class="fas fa-star star filled"></i>
-                            <span style="margin-left: 5px; color: var(--star-filled);">5.0</span>
+                            <span style="margin-left: 5px; color: var(--star-filled);">4.9</span>
                         </div>
-                        <div class="paper-abstract">
-                            A book on problem-solving techniques and strategies that can be applied to mathematical and computational problems.
+                        <div class="book-description">
+                            The point of the book is to help the student understand how assembly language and computer programming works.
                         </div>
-                        <a href="http://www.gang.umass.edu/~franz/Paul_Zeitz_The_Art_and_Craft_of_Problem_SolvingBookosorg.pdf" class="paper-download">Download PDF</a>
+                        <a href="https://download-mirror.savannah.gnu.org/releases/pgubook/ProgrammingGroundUp-1-0-booksize.pdf" class="book-download">View Book</a>
                     </div>
                 </div>
             </div>

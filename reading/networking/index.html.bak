@@ -22,15 +22,16 @@ Copyright (C) 2025 wangbin579
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Distributed Databases Research Papers</title>
+    <title>Networking Research Papers Hub</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
-        /* ===== PROFESSIONAL COLOR SCHEME ===== */
+        /* ===== NETWORKING COLOR SCHEME ===== */
         :root {
-            --primary: #3498db;       /* Core distributed systems blue */
-            --theoretical: #e74c3c;    /* Theoretical red */
-            --practical: #2ecc71;      /* Practical green */
-            --specialized: #9b59b6;    /* Specialized purple */
+            --primary: #27ae60;       /* Core networking green */
+            --theoretical: #3498db;    /* Theoretical blue */
+            --practical: #f39c12;      /* Practical orange */
+            --protocols: #9b59b6;     /* Protocols purple */
+            --security: #e74c3c;      /* Security red */
             --dark: #2c3e50;          /* Text color */
             --light: #ecf0f1;         /* Card background */
             --beginner: #2ecc71;
@@ -123,11 +124,6 @@ Copyright (C) 2025 wangbin579
             border-color: var(--practical);
         }
 
-        .specialized h2 {
-            color: var(--specialized);
-            border-color: var(--specialized);
-        }
-
         /* Paper items */
         .paper-item {
             padding: 15px;
@@ -143,10 +139,6 @@ Copyright (C) 2025 wangbin579
 
         .practical .paper-item {
             border-left-color: var(--practical);
-        }
-
-        .specialized .paper-item {
-            border-left-color: var(--specialized);
         }
 
         .paper-item:hover {
@@ -210,7 +202,7 @@ Copyright (C) 2025 wangbin579
         }
 
         .paper-download:hover {
-            background: #2980b9;
+            background: #219653;
         }
 
         .paper-abstract {
@@ -225,16 +217,17 @@ Copyright (C) 2025 wangbin579
             .paper-section {
                 grid-template-columns: 1fr;
             }
+            
         }
     </style>
 </head>
 <body>
     <div class="container">
-        <a href="index.html" class="back-link"><i class="fas fa-arrow-left"></i> Back to Resources</a>
+        <a href="../index.html" class="back-link"><i class="fas fa-arrow-left"></i> Back to Resources</a>
         
         <header>
-            <h1>Distributed Databases Research</h1>
-            <p class="subtitle">From theoretical foundations to production systems</p>
+            <h1>Networking Research Papers Hub</h1>
+            <p class="subtitle">From theoretical foundations to practical implementations</p>
         </header>
         
         <!-- ===== PAPER SECTIONS ===== -->
@@ -243,11 +236,10 @@ Copyright (C) 2025 wangbin579
             <div class="paper-category theoretical">
                 <h2><i class="fas fa-landmark"></i> Theoretical Resources</h2>
                 <div class="paper-list">
-
                     <div class="paper-item">
-                        <div class="paper-title">Fault Tolerance via Idempotence</div>
+                        <div class="paper-title">Congestion Avoidance and Control</div>
                         <div class="paper-meta">
-                            <span>G. Ramalingam et al., 2013</span>
+                            <span>Jacobson, 1988</span>
                             <span class="paper-difficulty intermediate">Intermediate</span>
                         </div>
                         <div class="paper-rating">
@@ -259,43 +251,43 @@ Copyright (C) 2025 wangbin579
                             <span style="margin-left: 5px; color: var(--star-filled);">5.0</span>
                         </div>
                         <div class="paper-abstract">
-                            Building distributed services and applications is challenging due to the pitfalls of distribution such as process and communication failures. A natural solution to these problems is to detect potential failures, and retry the failed computation and/or resend messages.
+                            The paper that introduced congestion control algorithms that became standard in TCP implementations.
                         </div>
-                        <a href="https://arxiv.org/pdf/1905.10818/" class="paper-download">Download PDF</a>
-                    </div>          
-                                        
-                    <div class="paper-item">
-                        <div class="paper-title">Chasing the FLP Impossibility Result in a LAN</div>
-                        <div class="paper-meta">
-                            <span>2001</span>
-                            <span class="paper-difficulty intermediate">Intermediate</span>
-                        </div>
-                        <div class="paper-rating">
-                            <i class="fas fa-star star filled"></i>
-                            <i class="fas fa-star star filled"></i>
-                            <i class="fas fa-star star filled"></i>
-                            <i class="fas fa-star star filled"></i>
-                            <i class="fas fa-star star filled"></i>
-                            <span style="margin-left: 5px; color: var(--star-filled);">5.0</span>
-                        </div>
-                        <div class="paper-abstract">
-                            Theoretical exploration of the limits of fault tolerance in distributed systems and practical implications.
-                        </div>
-                        <a href="https://infoscience.epfl.ch/server/api/core/bitstreams/0d2f441b-694c-4d08-9dfe-eb5b7d3556a6/content" class="paper-download">Download PDF</a>
+                        <a href="https://ee.lbl.gov/papers/congavoid.pdf" class="paper-download">Download PDF</a>
                     </div>
-                                    
+                    
+                    <div class="paper-item">
+									    <div class="paper-title">An Analysis of Network-Partitioning Failures in Cloud Systems</div>
+									    <div class="paper-meta">
+									        <span>Ahmed Alquraan et al., 2018</span>
+									        <span class="paper-difficulty advanced">Advanced</span>
+									    </div>
+									    <div class="paper-rating">
+									        <i class="fas fa-star star filled"></i>
+									        <i class="fas fa-star star filled"></i>
+									        <i class="fas fa-star star filled"></i>
+									        <i class="fas fa-star star filled"></i>
+									        <i class="fas fa-star star filled"></i>
+									        <span style="margin-left: 5px; color: var(--star-filled);">5.0</span>
+									    </div>
+									    <div class="paper-abstract">
+									        Fortunately, we identify ordering, timing, and network fault characteristics that significantly simplify testing. Furthermore, we found that a significant number of the failures are due to design flaws in core system mechanisms.
+									    </div>
+									    <a href="https://www.usenix.org/system/files/osdi18-alquraan.pdf" class="paper-download">Download PDF</a>
+
+									</div>			
+									
                 </div>
             </div>
             
-            <!-- Practical Systems -->
+            <!-- Practical Implementations -->
             <div class="paper-category practical">
-                <h2><i class="fas fa-laptop-code"></i> Practical Resources</h2>
+                <h2><i class="fas fa-network-wired"></i> Practical Resources</h2>
                 <div class="paper-list">
-                	
                     <div class="paper-item">
-                        <div class="paper-title">Challenges to Adopting Stronger Consistency at Scale</div>
+                        <div class="paper-title">A TCP/IP Tutorial</div>
                         <div class="paper-meta">
-                            <span>Phillipe Ajoux et al., 2014</span>
+                            <span>RFC, 1991</span>
                             <span class="paper-difficulty beginner">Beginner</span>
                         </div>
                         <div class="paper-rating">
@@ -307,98 +299,54 @@ Copyright (C) 2025 wangbin579
                             <span style="margin-left: 5px; color: var(--star-filled);">5.0</span>
                         </div>
                         <div class="paper-abstract">
-                            Analysis of the fundamental challenges in implementing strong consistency models in large-scale distributed systems.
+                            The best and easiest introductory material for the TCP/IP protocol
                         </div>
-                        <a href="https://www.vldb.org/pvldb/vol8/p209-yu.pdf" class="paper-download">Download PDF</a>
+                        <a href="https://www.rfc-editor.org/rfc/pdfrfc/rfc1180.txt.pdf" class="paper-download">Download PDF</a>
                     </div>
-
-
-	                  <div class="paper-item">
-		                    <div class="paper-title">Citus: Distributed PostgreSQL for Data-Intensive Applications</div>
-		                    <div class="paper-meta">
-		                        <span>Umur Cubukcu et al., 2021</span>
-		                        <span class="paper-difficulty beginner">Beginner</span>
-		                    </div>
-		                    <div class="paper-rating">
-		                        <i class="fas fa-star star filled"></i>
-		                        <i class="fas fa-star star filled"></i>
-		                        <i class="fas fa-star star filled"></i>
-		                        <i class="fas fa-star star filled"></i>
-		                        <i class="fas fa-star star filled"></i>
-		                        <span style="margin-left: 5px; color: var(--star-filled);">5.0</span>
-		                    </div>
-		                    <div class="paper-abstract">
-		                        This paper describes the requirements of four common workload patterns and how Citus addresses those requirements.
-		                    </div>
-		                    <a href="https://dl.acm.org/doi/pdf/10.1145/3448016.3457551" class="paper-download">Download PDF</a>
-		               </div>
-		                                   
+                    
                     <div class="paper-item">
-                        <div class="paper-title">Coordination Avoidance in Database Systems</div>
+                        <div class="paper-title">An Analysis of TCP Reset Behaviour on the Internet</div>
                         <div class="paper-meta">
-                            <span>Peter Bailis et al., 2014</span>
-                            <span class="paper-difficulty intermediate">Intermediate</span>
+                            <span>Jeffrey et al., 2004</span>
+                            <span class="paper-difficulty beginner">Beginner</span>
                         </div>
                         <div class="paper-rating">
                             <i class="fas fa-star star filled"></i>
                             <i class="fas fa-star star filled"></i>
                             <i class="fas fa-star star filled"></i>
                             <i class="fas fa-star star filled"></i>
-                            <i class="fas fa-star-half-alt star filled"></i>
-                            <span style="margin-left: 5px; color: var(--star-filled);">4.5</span>
+                            <i class="fas fa-star star filled"></i>
+                            <span style="margin-left: 5px; color: var(--star-filled);">5.0</span>
                         </div>
                         <div class="paper-abstract">
-                            Practical techniques for reducing coordination overhead in distributed database implementations.
+                            This paper presents a one-year study of Internet packet traffic from a large campus network, showing that 15-25% of TCP connections have at least one TCP RST (reset).
                         </div>
-                        <a href="https://www.vldb.org/pvldb/vol8/p185-bailis.pdf" class="paper-download">Download PDF</a>
+                        <a href="https://pages.cpsc.ucalgary.ca/~carey/papers/2005/TCP-Resets.pdf" class="paper-download">Download PDF</a>
                     </div>
                     
                     <div class="paper-item">
-                        <div class="paper-title">Replicated Data Consistency Explained Through Baseball</div>
+                        <div class="paper-title">Taking a Long Look at QUIC</div>
                         <div class="paper-meta">
-                            <span>D. Terry, 2011</span>
-                            <span class="paper-difficulty intermediate">Intermediate</span>
+                            <span>Kakhki et al., 2017</span>
+                            <span class="paper-difficulty beginner">Beginner</span>
                         </div>
                         <div class="paper-rating">
                             <i class="fas fa-star star filled"></i>
                             <i class="fas fa-star star filled"></i>
                             <i class="fas fa-star star filled"></i>
                             <i class="fas fa-star star filled"></i>
-                            <i class="far fa-star star"></i>
-                            <span style="margin-left: 5px; color: var(--star-filled);">4.0</span>
+                            <i class="fas fa-star star filled"></i>
+                            <span style="margin-left: 5px; color: var(--star-filled);">5.0</span>
                         </div>
                         <div class="paper-abstract">
-                            Practical explanation of consistency models using baseball as an analogy, making complex concepts accessible.
+                            An Approach for Rigorous Evaluation of Rapidly Evolving Transport Protocols.
                         </div>
-                        <a href="https://www.microsoft.com/en-us/research/wp-content/uploads/2011/10/ConsistencyAndBaseballReport.pdf" class="paper-download">Download PDF</a>
+                        <a href="https://mislove.org/publications/QUIC-IMC.pdf" class="paper-download">Download PDF</a>
                     </div>
-                    
-                    
-	                  <div class="paper-item">
-		                    <div class="paper-title">The End of a Myth: Distributed Transactions Can Scale</div>
-		                    <div class="paper-meta">
-		                        <span>Erfan Zamanian et al., 2017</span>
-		                        <span class="paper-difficulty intermediate">Intermediate</span>
-		                    </div>
-		                    <div class="paper-rating">
-		                        <i class="fas fa-star star filled"></i>
-		                        <i class="fas fa-star star filled"></i>
-		                        <i class="fas fa-star star filled"></i>
-		                        <i class="fas fa-star star filled"></i>
-		                        <i class="fas fa-star star filled"></i>
-		                        <span style="margin-left: 5px; color: var(--star-filled);">5.0</span>
-		                    </div>
-		                    <div class="paper-abstract">
-		                        Research challenging the conventional wisdom that distributed transactions don't scale, with practical implications.
-		                    </div>
-		                    <a href="https://www.vldb.org/pvldb/vol10/p685-zamanian.pdf/" class="paper-download">Download PDF</a>
-		               </div>
-
-		               	                
                 </div>
             </div>
         </div>
     </div>
-    
- </body>
+
+</body>
 </html>

@@ -22,15 +22,16 @@ Copyright (C) 2025 wangbin579
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Distributed Databases Research Papers</title>
+    <title>Operating Systems Research Hub</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
-        /* ===== PROFESSIONAL COLOR SCHEME ===== */
+        /* ===== OS THEME COLOR SCHEME ===== */
         :root {
-            --primary: #3498db;       /* Core distributed systems blue */
-            --theoretical: #e74c3c;    /* Theoretical red */
+            --primary: #3498db;       /* Core OS blue */
+            --theoretical: #2c3e50;    /* Theoretical dark blue */
             --practical: #2ecc71;      /* Practical green */
-            --specialized: #9b59b6;    /* Specialized purple */
+            --kernel: #9b59b6;        /* Kernel purple */
+            --scheduling: #e74c3c;    /* Scheduling red */
             --dark: #2c3e50;          /* Text color */
             --light: #ecf0f1;         /* Card background */
             --beginner: #2ecc71;
@@ -123,11 +124,6 @@ Copyright (C) 2025 wangbin579
             border-color: var(--practical);
         }
 
-        .specialized h2 {
-            color: var(--specialized);
-            border-color: var(--specialized);
-        }
-
         /* Paper items */
         .paper-item {
             padding: 15px;
@@ -143,10 +139,6 @@ Copyright (C) 2025 wangbin579
 
         .practical .paper-item {
             border-left-color: var(--practical);
-        }
-
-        .specialized .paper-item {
-            border-left-color: var(--specialized);
         }
 
         .paper-item:hover {
@@ -230,11 +222,11 @@ Copyright (C) 2025 wangbin579
 </head>
 <body>
     <div class="container">
-        <a href="index.html" class="back-link"><i class="fas fa-arrow-left"></i> Back to Resources</a>
+        <a href="../index.html" class="back-link"><i class="fas fa-arrow-left"></i> Back to Resources</a>
         
         <header>
-            <h1>Distributed Databases Research</h1>
-            <p class="subtitle">From theoretical foundations to production systems</p>
+            <h1>Operating Systems Research Hub</h1>
+            <p class="subtitle">From theoretical foundations to practical implementations</p>
         </header>
         
         <!-- ===== PAPER SECTIONS ===== -->
@@ -243,12 +235,11 @@ Copyright (C) 2025 wangbin579
             <div class="paper-category theoretical">
                 <h2><i class="fas fa-landmark"></i> Theoretical Resources</h2>
                 <div class="paper-list">
-
                     <div class="paper-item">
-                        <div class="paper-title">Fault Tolerance via Idempotence</div>
+                        <div class="paper-title">The Structure of the "THE"-Multiprogramming System</div>
                         <div class="paper-meta">
-                            <span>G. Ramalingam et al., 2013</span>
-                            <span class="paper-difficulty intermediate">Intermediate</span>
+                            <span>Edsger Dijkstra, 1968</span>
+                            <span class="paper-difficulty advanced">Advanced</span>
                         </div>
                         <div class="paper-rating">
                             <i class="fas fa-star star filled"></i>
@@ -259,43 +250,21 @@ Copyright (C) 2025 wangbin579
                             <span style="margin-left: 5px; color: var(--star-filled);">5.0</span>
                         </div>
                         <div class="paper-abstract">
-                            Building distributed services and applications is challenging due to the pitfalls of distribution such as process and communication failures. A natural solution to these problems is to detect potential failures, and retry the failed computation and/or resend messages.
+                            A classic paper describing the layered structure of the THE operating system, introducing many fundamental concepts of operating system design.
                         </div>
-                        <a href="https://arxiv.org/pdf/1905.10818/" class="paper-download">Download PDF</a>
-                    </div>          
-                                        
-                    <div class="paper-item">
-                        <div class="paper-title">Chasing the FLP Impossibility Result in a LAN</div>
-                        <div class="paper-meta">
-                            <span>2001</span>
-                            <span class="paper-difficulty intermediate">Intermediate</span>
-                        </div>
-                        <div class="paper-rating">
-                            <i class="fas fa-star star filled"></i>
-                            <i class="fas fa-star star filled"></i>
-                            <i class="fas fa-star star filled"></i>
-                            <i class="fas fa-star star filled"></i>
-                            <i class="fas fa-star star filled"></i>
-                            <span style="margin-left: 5px; color: var(--star-filled);">5.0</span>
-                        </div>
-                        <div class="paper-abstract">
-                            Theoretical exploration of the limits of fault tolerance in distributed systems and practical implications.
-                        </div>
-                        <a href="https://infoscience.epfl.ch/server/api/core/bitstreams/0d2f441b-694c-4d08-9dfe-eb5b7d3556a6/content" class="paper-download">Download PDF</a>
+                        <a href="https://cseweb.ucsd.edu/classes/wi19/cse221-a/papers/dijkstra68.pdf" class="paper-download">Download PDF</a>
                     </div>
-                                    
                 </div>
             </div>
             
-            <!-- Practical Systems -->
+            <!-- Practical Implementations -->
             <div class="paper-category practical">
-                <h2><i class="fas fa-laptop-code"></i> Practical Resources</h2>
+                <h2><i class="fas fa-microchip"></i> Practical Implementations</h2>
                 <div class="paper-list">
-                	
                     <div class="paper-item">
-                        <div class="paper-title">Challenges to Adopting Stronger Consistency at Scale</div>
+                        <div class="paper-title">Quantifying The Cost of Context Switch</div>
                         <div class="paper-meta">
-                            <span>Phillipe Ajoux et al., 2014</span>
+                            <span>Chuanpeng Li et al., 2007</span>
                             <span class="paper-difficulty beginner">Beginner</span>
                         </div>
                         <div class="paper-rating">
@@ -307,57 +276,36 @@ Copyright (C) 2025 wangbin579
                             <span style="margin-left: 5px; color: var(--star-filled);">5.0</span>
                         </div>
                         <div class="paper-abstract">
-                            Analysis of the fundamental challenges in implementing strong consistency models in large-scale distributed systems.
+                            Experimental quantification of the indirect cost of context switch using a synthetic workload, measuring the impact of program data size and access stride.
                         </div>
-                        <a href="https://www.vldb.org/pvldb/vol8/p209-yu.pdf" class="paper-download">Download PDF</a>
+                        <a href="https://www.usenix.org/legacy/events/expcs07/papers/2-li.pdf" class="paper-download">Download PDF</a>
                     </div>
-
-
-	                  <div class="paper-item">
-		                    <div class="paper-title">Citus: Distributed PostgreSQL for Data-Intensive Applications</div>
-		                    <div class="paper-meta">
-		                        <span>Umur Cubukcu et al., 2021</span>
-		                        <span class="paper-difficulty beginner">Beginner</span>
-		                    </div>
-		                    <div class="paper-rating">
-		                        <i class="fas fa-star star filled"></i>
-		                        <i class="fas fa-star star filled"></i>
-		                        <i class="fas fa-star star filled"></i>
-		                        <i class="fas fa-star star filled"></i>
-		                        <i class="fas fa-star star filled"></i>
-		                        <span style="margin-left: 5px; color: var(--star-filled);">5.0</span>
-		                    </div>
-		                    <div class="paper-abstract">
-		                        This paper describes the requirements of four common workload patterns and how Citus addresses those requirements.
-		                    </div>
-		                    <a href="https://dl.acm.org/doi/pdf/10.1145/3448016.3457551" class="paper-download">Download PDF</a>
-		               </div>
-		                                   
+                    
                     <div class="paper-item">
-                        <div class="paper-title">Coordination Avoidance in Database Systems</div>
+                        <div class="paper-title">Analysis of false cache line sharing effects on multicore CPUs</div>
                         <div class="paper-meta">
-                            <span>Peter Bailis et al., 2014</span>
-                            <span class="paper-difficulty intermediate">Intermediate</span>
+                            <span>Suntorn Sae-eung, 2010</span>
+                            <span class="paper-difficulty beginner">Beginner</span>
                         </div>
                         <div class="paper-rating">
                             <i class="fas fa-star star filled"></i>
                             <i class="fas fa-star star filled"></i>
                             <i class="fas fa-star star filled"></i>
                             <i class="fas fa-star star filled"></i>
-                            <i class="fas fa-star-half-alt star filled"></i>
-                            <span style="margin-left: 5px; color: var(--star-filled);">4.5</span>
+                            <i class="fas fa-star star filled"></i>
+                            <span style="margin-left: 5px; color: var(--star-filled);">5.0</span>
                         </div>
                         <div class="paper-abstract">
-                            Practical techniques for reducing coordination overhead in distributed database implementations.
+                            A study on the effects of false cache line sharing in multicore CPUs and its impact on system performance.
                         </div>
-                        <a href="https://www.vldb.org/pvldb/vol8/p185-bailis.pdf" class="paper-download">Download PDF</a>
+                        <a href="http://worldcomp-proceedings.com/proc/p2011/PDP2982.pdf" class="paper-download">Download PDF</a>
                     </div>
-                    
+
                     <div class="paper-item">
-                        <div class="paper-title">Replicated Data Consistency Explained Through Baseball</div>
+                        <div class="paper-title">User-level Scheduling on NUMA Multicore Systems under Linux</div>
                         <div class="paper-meta">
-                            <span>D. Terry, 2011</span>
-                            <span class="paper-difficulty intermediate">Intermediate</span>
+                            <span>Blagodurov et al., 2011</span>
+                            <span class="paper-difficulty advanced">Advanced</span>
                         </div>
                         <div class="paper-rating">
                             <i class="fas fa-star star filled"></i>
@@ -368,37 +316,14 @@ Copyright (C) 2025 wangbin579
                             <span style="margin-left: 5px; color: var(--star-filled);">4.0</span>
                         </div>
                         <div class="paper-abstract">
-                            Practical explanation of consistency models using baseball as an analogy, making complex concepts accessible.
+                            A study on user-level scheduling techniques for NUMA multicore systems, examining performance implications and optimization strategies.
                         </div>
-                        <a href="https://www.microsoft.com/en-us/research/wp-content/uploads/2011/10/ConsistencyAndBaseballReport.pdf" class="paper-download">Download PDF</a>
+                        <a href="https://people.ece.ubc.ca/sasha/papers/ols11-blagodurov.pdf" class="paper-download">Download PDF</a>
                     </div>
-                    
-                    
-	                  <div class="paper-item">
-		                    <div class="paper-title">The End of a Myth: Distributed Transactions Can Scale</div>
-		                    <div class="paper-meta">
-		                        <span>Erfan Zamanian et al., 2017</span>
-		                        <span class="paper-difficulty intermediate">Intermediate</span>
-		                    </div>
-		                    <div class="paper-rating">
-		                        <i class="fas fa-star star filled"></i>
-		                        <i class="fas fa-star star filled"></i>
-		                        <i class="fas fa-star star filled"></i>
-		                        <i class="fas fa-star star filled"></i>
-		                        <i class="fas fa-star star filled"></i>
-		                        <span style="margin-left: 5px; color: var(--star-filled);">5.0</span>
-		                    </div>
-		                    <div class="paper-abstract">
-		                        Research challenging the conventional wisdom that distributed transactions don't scale, with practical implications.
-		                    </div>
-		                    <a href="https://www.vldb.org/pvldb/vol10/p685-zamanian.pdf/" class="paper-download">Download PDF</a>
-		               </div>
-
-		               	                
                 </div>
             </div>
         </div>
     </div>
-    
- </body>
+
+</body>
 </html>
